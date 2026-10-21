@@ -1,0 +1,1284 @@
+{
+  "settings": {
+    "id": "global-settings",
+    "clinic_name": "BIOFLORA Medical Spa",
+    "tagline": "Refined aesthetic medicine & botanical skin wellness.",
+    "operating_mode": "demonstration",
+    "announcement_active": true,
+    "announcement_text": "Complimentary Comprehensive Skin Diagnostic included with all initial consultations.",
+    "announcement_link": "/consultation",
+    "primary_phone": "(800) 555-0198",
+    "primary_email": "concierge@bioflora-medspa.example.com",
+    "booking_provider": "sandbox",
+    "booking_provider_configured": false,
+    "email_provider": "mock",
+    "email_provider_configured": false,
+    "stripe_configured": false,
+    "last_updated": "2026-10-21T15:28:28.513Z"
+  },
+  "categories": [
+    {
+      "id": "cat-injectables",
+      "slug": "injectables-neurotoxins",
+      "name": "Neuromodulators & Dermal Sculpting",
+      "tagline": "Subtle architectural enhancement and expressive softening.",
+      "description": "Doctor-led injectable treatments designed to soften hyperdynamic facial lines and restore natural volumetric contours with precision micro-dosing.",
+      "hero_image": "/images/categories/injectables.jpg",
+      "display_order": 1,
+      "is_active": true
+    },
+    {
+      "id": "cat-rejuvenation",
+      "slug": "skin-rejuvenation",
+      "name": "Regenerative Skin Rejuvenation",
+      "tagline": "Stimulating neocollagenesis at cellular depths.",
+      "description": "Advanced RF microneedling, autologous PRP, and clinical bio-stimulators engineered to rebuild the skin's structural extracellular matrix.",
+      "hero_image": "/images/categories/rejuvenation.jpg",
+      "display_order": 2,
+      "is_active": true
+    },
+    {
+      "id": "cat-lasers",
+      "slug": "laser-phototherapy",
+      "name": "Precision Laser & Phototherapy",
+      "tagline": "Targeted optical wavelengths for tone and micro-clarity.",
+      "description": "Medical-grade fractional lasers and BBL phototherapy to clear stubborn dyschromia, vascular flushing, and photodamage with calibrated safety.",
+      "hero_image": "/images/categories/lasers.jpg",
+      "display_order": 3,
+      "is_active": true
+    },
+    {
+      "id": "cat-facials",
+      "slug": "facials-hydration",
+      "name": "Clinical Facials & Vortex Hydration",
+      "tagline": "Deep epidermal cleansing and botanical serum infusion.",
+      "description": "Non-invasive vortex extraction paired with bespoke pharmaceutical-grade antioxidants, hyaluronic acid, and LED photomodulation.",
+      "hero_image": "/images/categories/facials.jpg",
+      "display_order": 4,
+      "is_active": true
+    },
+    {
+      "id": "cat-wellness",
+      "slug": "cellular-wellness",
+      "name": "Cellular Longevity & IV Nutrients",
+      "tagline": "Systemic vitality, antioxidant replenishment, and recovery.",
+      "description": "Intravenous micronutrient therapy and coenzyme NAD+ infusions formulated to support cellular energy metabolism and whole-body resilience.",
+      "hero_image": "/images/categories/wellness.jpg",
+      "display_order": 5,
+      "is_active": true
+    }
+  ],
+  "goals": [
+    {
+      "id": "goal-wrinkles",
+      "slug": "fine-lines-wrinkles",
+      "name": "Fine Lines & Expression Lines",
+      "short_description": "Smooth forehead dynamics, crow's feet, and glabella creases while preserving authentic facial expression.",
+      "detailed_overview": "Dynamic lines form through repeated muscular contraction, while static lines reflect intrinsic collagen reduction. Our layered clinical approach combines micro-dose neuromodulators with fractional laser resurfacing to address both surface texture and underlying muscular tension.",
+      "recommended_treatments": [
+        "botox-cosmetic",
+        "clear-brilliant-laser",
+        "rf-microneedling-morpheus"
+      ],
+      "display_order": 1
+    },
+    {
+      "id": "goal-volume",
+      "slug": "volume-loss-contour",
+      "name": "Midface & Jawline Volume Loss",
+      "short_description": "Restore structural cheek apexes, soften nasolabial transitions, and define mandibular borders.",
+      "detailed_overview": "As deep fat pads descend and bone density gradually remodels, the midface loses supportive architecture. We utilize biostimulatory poly-L-lactic acid and cohesivity-matched hyaluronic gels to replenish structural framework naturally.",
+      "recommended_treatments": [
+        "sculptra-biostimulator",
+        "restylane-kysse-lip-sculpting"
+      ],
+      "display_order": 2
+    },
+    {
+      "id": "goal-pigment",
+      "slug": "hyperpigmentation-sun-damage",
+      "name": "Hyperpigmentation & Solar Lentigines",
+      "short_description": "Fade UV-induced melanin clusters, post-inflammatory marks, and diffuse epidermal mottling.",
+      "detailed_overview": "Uneven pigment reflects melanocyte hyperactivity triggered by UV radiation or thermal trauma. Our dual-wavelength optical approach selectively targets melanin chromophores without overheating surrounding tissue.",
+      "recommended_treatments": [
+        "broadband-light-bbl-hero",
+        "clear-brilliant-laser"
+      ],
+      "display_order": 3
+    },
+    {
+      "id": "goal-laxity",
+      "slug": "skin-laxity-elasticity",
+      "name": "Skin Laxity & Firmness",
+      "short_description": "Firm sagging submental contours, jowls, and periorbital tissue through deep thermal contraction.",
+      "detailed_overview": "Loss of elastin and fragmented collagen fibers lead to tissue descent. Targeted fractional radiofrequency delivers controlled thermal coagulation at depths up to 4mm, triggering deep fibroblastic contraction.",
+      "recommended_treatments": [
+        "rf-microneedling-morpheus",
+        "prp-collagen-induction"
+      ],
+      "display_order": 4
+    },
+    {
+      "id": "goal-dullness",
+      "slug": "dullness-dehydration",
+      "name": "Epidermal Dullness & Dehydration",
+      "short_description": "Resurface congested stratum corneum and replenish intercellular lipid moisture reserves.",
+      "detailed_overview": "Impaired barrier function and sluggish cellular turnover cause light to scatter unevenly across the skin surface. Vortex infusion and lymphatic drainage instantly restore radiance and deep hydration.",
+      "recommended_treatments": [
+        "bioflora-signature-hydrafacial",
+        "nad-cellular-longevity-infusion"
+      ],
+      "display_order": 5
+    }
+  ],
+  "treatments": [
+    {
+      "id": "trt-botox",
+      "slug": "botox-cosmetic",
+      "name": "Precision Neuromodulator Injections",
+      "category_id": "cat-injectables",
+      "category_slug": "injectables-neurotoxins",
+      "tagline": "Targeted smoothing of hyperdynamic lines with micro-dose anatomical precision.",
+      "summary": "FDA-approved onabotulinumtoxinA administered by board-certified practitioners to gently relax dynamic facial muscles while safeguarding natural emotive movement.",
+      "hero_image": "/images/treatments/botox-cosmetic.jpg",
+      "overview": "Botox Cosmetic temporarily moderates localized neuromuscular signaling in targeted facial muscles. By softening repetitive contraction in the glabella (frown lines), frontalis (forehead), and orbicularis oculi (crow's feet), the overlying skin rests, preventing existing creases from deepening and smoothing surface lines.",
+      "what_it_involves": "Following a comprehensive facial kinetic assessment, microscopic quantities of purified neurotoxin are deposited with ultra-fine gauge needles into precise muscular vectors.",
+      "target_goals": [
+        "fine-lines-wrinkles"
+      ],
+      "clinical_mechanism": "Blocks presynaptic acetylcholine release at the neuromuscular junction, inducing temporary and reversible flaccid chemo-denervation of treated muscle fibers over 3 to 4 months.",
+      "candidacy": "Appropriate for healthy adult patients presenting with mild to moderate hyperdynamic forehead creases, glabella furrows, or lateral canthal lines.",
+      "contraindications": [
+        "Known hypersensitivity to any botulinum toxin preparation",
+        "Infection at the planned injection site",
+        "Pre-existing neuromuscular transmission disorders (e.g., Myasthenia Gravis, ALS)",
+        "Pregnancy or current lactation"
+      ],
+      "typical_duration_minutes": 30,
+      "preparation_guidance": [
+        "Avoid blood-thinning supplements (NSAIDs, Vitamin E, Ginkgo, Fish Oil) for 5-7 days prior to treatment if medically safe to reduce bruising risk.",
+        "Refrain from consuming alcohol for 24 hours prior to injection.",
+        "Arrive with clean skin free of heavy cosmetics."
+      ],
+      "visit_expectations": "Your practitioner will evaluate dynamic facial animation, mark anatomical landmarks, and cleanse the area with chlorhexidine. Injections feel like quick, mild pinches lasting only 5 to 10 minutes.",
+      "aftercare_instructions": [
+        "Remain upright for at least 4 hours following treatment.",
+        "Do not massage, rub, or apply compressive pressure to the injected sites for 24 hours.",
+        "Avoid strenuous cardiovascular exercise, saunas, and hot tubs for 24 hours."
+      ],
+      "recovery_downtime": "Near zero downtime. Transient erythematous papules (resembling small mosquito bites) at injection sites resolve within 15 to 30 minutes.",
+      "risks_and_side_effects": [
+        "Localized bruising, swelling, or mild tenderness at the injection site",
+        "Transient mild headache",
+        "Rare risk of temporary ptosis (eyelid or brow droop) if post-treatment rubbing occurs"
+      ],
+      "expected_timeframe": "Initial muscle relaxation appears in 3 to 5 days, with full clinical onset at 14 days post-injection.",
+      "recommended_sessions": "Maintenance treatments are typically scheduled every 3 to 4 months.",
+      "price_type": "starting_at",
+      "price_amount": 380,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Dr. Elena Vance, MD",
+      "clinician_license": "CA Med License #A142890",
+      "last_clinical_review_date": "2026-08-15",
+      "is_featured": true,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Will my face look frozen or unnatural?",
+          "answer": "No. Our clinical philosophy focuses on micro-dosing and precise vector placement. Our goal is refreshed, rested skin that preserves your full range of expressive communication."
+        },
+        {
+          "question": "How long before a special event should I receive treatment?",
+          "answer": "We recommend scheduling your session at least 3 to 4 weeks prior to major events to allow full onset and resolution of any minor bruising."
+        }
+      ]
+    },
+    {
+      "id": "trt-morpheus",
+      "slug": "rf-microneedling-morpheus",
+      "name": "Morpheus8 Subdermal RF Remodeling",
+      "category_id": "cat-rejuvenation",
+      "category_slug": "skin-rejuvenation",
+      "tagline": "Fractional radiofrequency delivering deep neocollagenesis and tissue contraction.",
+      "summary": "State-of-the-art fractional RF microneedling that penetrates up to 4mm into subdermal adipose architecture, stimulating profound collagen synthesis and skin tightening.",
+      "hero_image": "/images/treatments/rf-microneedling-morpheus.jpg",
+      "overview": "Morpheus8 combines the mechanical collagen stimulation of medical microneedling with thermal radiofrequency energy. By heating the subdermal tissue layer up to 4mm, it stimulates immediate fibroblastic contraction and long-term neocollagenesis to firm lax skin and refine irregular texture.",
+      "what_it_involves": "Gold-plated micro-pins penetrate the dermis and subdermal adipose tissue to discharge fractionated RF thermal bursts at programmed depths.",
+      "target_goals": [
+        "skin-laxity-elasticity",
+        "acne-scarring-texture",
+        "fine-lines-wrinkles"
+      ],
+      "clinical_mechanism": "Induces fractional coagulative thermal wounds at precise depths, initiating the wound-healing cascade with subsequent release of TGF-beta and synthesis of Type I and III collagen.",
+      "candidacy": "Patients with mild-to-moderate skin laxity along the jawline, submental fullness, perioral crepiness, or textural scarring across all Fitzpatrick skin types (I-VI).",
+      "contraindications": [
+        "Implanted pacemaker or internal cardiac defibrillator",
+        "Active cystic acne or herpes simplex breakout in the treatment area",
+        "Current isotretinoin (Accutane) therapy within the past 6 months",
+        "Active collagen vascular diseases or keloidal scarring history"
+      ],
+      "typical_duration_minutes": 75,
+      "preparation_guidance": [
+        "Discontinue topical retinoids, AHA/BHA exfoliants, and benzoyl peroxide for 5 days prior.",
+        "Avoid unprotected sun exposure or spray tanning for 2 weeks prior.",
+        "Arrive 45 minutes early for compound topical numbing application."
+      ],
+      "visit_expectations": "Thorough topical lidocaine/tetracaine numbing is applied for 45 minutes. During treatment, you will feel targeted pressure and brief pulses of warmth.",
+      "aftercare_instructions": [
+        "Apply only clinic-dispensed post-procedure regenerative balm for the first 48 hours.",
+        "Avoid direct sun exposure and wear mineral SPF 50+ beginning 24 hours post-treatment.",
+        "Do not apply makeup or perform strenuous exercise for 48 hours."
+      ],
+      "recovery_downtime": "2 to 4 days of moderate erythema and localized edema. Micro-crusting may persist for 3 to 7 days.",
+      "risks_and_side_effects": [
+        "Transient erythema, pinpoint grid marks, and swelling",
+        "Temporary post-inflammatory hyperpigmentation (preventable with strict UV shielding)",
+        "Mild localized bruising"
+      ],
+      "expected_timeframe": "Textural refinement begins at 3 weeks; primary dermal tightening and remodeling progress through 3 to 6 months post-series.",
+      "recommended_sessions": "A series of 3 sessions spaced 4 to 6 weeks apart delivers optimal structural remodeling.",
+      "price_type": "starting_at",
+      "price_amount": 1150,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Dr. Elena Vance, MD",
+      "clinician_license": "CA Med License #A142890",
+      "last_clinical_review_date": "2026-08-15",
+      "is_featured": true,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Is Morpheus8 safe for darker skin tones?",
+          "answer": "Yes. Because Morpheus8 bypasses the epidermal melanin layer and delivers RF thermal energy directly to the deeper dermis, it is safe across all Fitzpatrick skin types (I-VI)."
+        }
+      ]
+    },
+    {
+      "id": "trt-hydrafacial",
+      "slug": "bioflora-signature-hydrafacial",
+      "name": "Bioflora Botanical Hydrafacial",
+      "category_id": "cat-facials",
+      "category_slug": "facials-hydration",
+      "tagline": "Patented vortex vacuum extraction with tailored botanical peptide infusion.",
+      "summary": "A medical-grade, multi-stage hydra-dermabrasion treatment that purifies congested pores, gently sloughs cellular debris, and bathes the skin in hyaluronic acid and botanical polyphenols.",
+      "hero_image": "/images/treatments/bioflora-signature-hydrafacial.jpg",
+      "overview": "The Bioflora Signature Hydrafacial merges advanced medical hydro-peeling technology with custom botanical actives. A four-step vortex system cleanses, exfoliates, painlessly extracts sebum, and infuses proprietary antioxidant complexes to revive exhausted, dehydrated skin without irritation.",
+      "what_it_involves": "Painless spiral suction paired with specialized treatment tips to infuse glycolic-salicylic peeling solutions, followed by intensive vortex peptide saturation.",
+      "target_goals": [
+        "dullness-dehydration",
+        "acne-scarring-texture"
+      ],
+      "clinical_mechanism": "Mechanical hydro-dermabrasion combined with chemical keratolysis using low-pH lactic and salicylic acids, facilitating trans-epidermal penetration of low-molecular-weight hyaluronic acid.",
+      "candidacy": "Suitable for virtually all skin types seeking instant luminosity, deep pore decongestion, and intense hydration prior to events or as ongoing maintenance.",
+      "contraindications": [
+        "Active facial sunburn or open epidermal abrasions",
+        "Severe active inflammatory cystic lesions",
+        "Allergy to aspirin or shellfish (salicylic and glucosamine components can be adjusted)"
+      ],
+      "typical_duration_minutes": 50,
+      "preparation_guidance": [
+        "Discontinue prescription retinoids 48 hours prior to treatment.",
+        "Avoid at-home manual facial scrubs for 3 days before your appointment."
+      ],
+      "visit_expectations": "Relaxing and pleasant sensation akin to a cool, damp paintbrush moving over the skin with light vacuum suction. Includes custom medical LED light therapy.",
+      "aftercare_instructions": [
+        "Keep the infused serum matrix on your skin for the remainder of the day.",
+        "Wear broad-spectrum mineral sunscreen.",
+        "Resume normal skincare routine the following morning."
+      ],
+      "recovery_downtime": "Zero downtime. Skin immediately exhibits a healthy, glass-like radiance.",
+      "risks_and_side_effects": [
+        "Mild transient erythema lasting 15 to 30 minutes in highly reactive skin"
+      ],
+      "expected_timeframe": "Immediate visible radiance and hydration lasting 2 to 4 weeks.",
+      "recommended_sessions": "Monthly maintenance sessions are recommended for optimal skin barrier health.",
+      "price_type": "fixed",
+      "price_amount": 325,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Sarah Lin, RN BSN",
+      "clinician_license": "CA RN License #954120",
+      "last_clinical_review_date": "2026-08-20",
+      "is_featured": true,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Can I apply makeup right after my Hydrafacial?",
+          "answer": "We recommend letting your skin absorb the clinical peptide infusions for the rest of the day, but mineral makeup can be applied immediately if needed."
+        }
+      ]
+    },
+    {
+      "id": "trt-bbl",
+      "slug": "broadband-light-bbl-hero",
+      "name": "BBL HERO Photofacial & Vascular Clearing",
+      "category_id": "cat-lasers",
+      "category_slug": "laser-phototherapy",
+      "tagline": "Sciton BroadBand Light delivering rapid photo-rejuvenation and pigment correction.",
+      "summary": "High-speed pulsed optical energy that targets melanin clusters, rosacea-associated erythema, and broken capillaries to restore uniform, luminous skin tone.",
+      "hero_image": "/images/treatments/broadband-light-bbl-hero.jpg",
+      "overview": "BroadBand Light (BBL) HERO operates on the principle of selective photothermolysis. Optical filters isolate targeted wavelengths that are preferentially absorbed by oxyhemoglobin and melanin. This coagulates dilated capillaries and breaks down stubborn sun spots, which flake off naturally over several days.",
+      "what_it_involves": "Chilled sapphire crystal glides continuously across the skin emitting ultra-fast pulses of calibrated broad-spectrum light.",
+      "target_goals": [
+        "hyperpigmentation-sun-damage"
+      ],
+      "clinical_mechanism": "Selectively heats and denatures hemoglobin in superficial teleangiectasias and fragments intracellular melanin granules in keratinocytes.",
+      "candidacy": "Individuals with fair to medium skin tones (Fitzpatrick I-IV) presenting with sun spots, freckles, rosacea flushing, or diffuse photodamage.",
+      "contraindications": [
+        "Recent active sun exposure, sunburn, or tanning bed use within 4 weeks",
+        "Fitzpatrick skin types V and VI (requires specializedNd:YAG or Pico laser alternatives)",
+        "Photosensitizing medications (e.g., doxycycline)",
+        "History of seizure disorders triggered by flashing light"
+      ],
+      "typical_duration_minutes": 45,
+      "preparation_guidance": [
+        "Completely avoid all UV exposure and self-tanners for 4 weeks prior.",
+        "Discontinue active acids and retinols 5 days before treatment."
+      ],
+      "visit_expectations": "Cooling gel is applied. The treatment feels like brief warm snaps of a rubber band. Protective eyewear is provided.",
+      "aftercare_instructions": [
+        "Treated pigmented lesions will darken (resembling coffee grounds) before flaking off over 5-7 days; do not pick or scrub them.",
+        "Apply daily broad-spectrum SPF 50+ mineral sunscreen without exception."
+      ],
+      "recovery_downtime": "Mild redness resembling a light sunburn for 2 to 6 hours.",
+      "risks_and_side_effects": [
+        "Transient erythema and mild localized swelling",
+        "Darkening of superficial freckles before shedding",
+        "Risk of blistering if recent sun exposure was undisclosed"
+      ],
+      "expected_timeframe": "Crisp pigment clearance and reduced redness within 7 to 10 days post-session.",
+      "recommended_sessions": "A series of 2 to 3 sessions followed by twice-yearly maintenance.",
+      "price_type": "starting_at",
+      "price_amount": 550,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Dr. Elena Vance, MD",
+      "clinician_license": "CA Med License #A142890",
+      "last_clinical_review_date": "2026-08-15",
+      "is_featured": true,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Why do my dark spots look darker immediately after treatment?",
+          "answer": "This is the desired clinical response known as MENDs (microscopic epidermal necrotic debris). The fragmented pigment travels to the surface and sheds naturally within 5 to 7 days."
+        }
+      ]
+    },
+    {
+      "id": "trt-sculptra",
+      "slug": "sculptra-biostimulator",
+      "name": "Sculptra Poly-L-Lactic Acid Biostimulator",
+      "category_id": "cat-injectables",
+      "category_slug": "injectables-neurotoxins",
+      "tagline": "Gradual, bio-regenerative restoration of deep structural facial volume.",
+      "summary": "A collagen-stimulating injectable that activates your body's natural regenerative processes to rebuild lost volume and soften deep smile lines over time.",
+      "hero_image": "/images/treatments/sculptra-biostimulator.jpg",
+      "overview": "Unlike hyaluronic acid dermal fillers that provide immediate gel-based volume, Sculptra utilizes biocompatible Poly-L-Lactic Acid (PLLA) micro-particles. As the carrier liquid absorbs, the PLLA particles stimulate a controlled subclinical inflammatory response that encourages fibroblasts to produce dense Type I collagen.",
+      "what_it_involves": "Reconstituted PLLA micro-suspension is injected using blunt-tip safety micro-cannulas into the deep supraperiosteal and sub-dermal planes.",
+      "target_goals": [
+        "volume-loss-contour",
+        "skin-laxity-elasticity"
+      ],
+      "clinical_mechanism": "Subclinical foreign body reaction inducing de novo neocollagenesis around PLLA micro-spheres over 6 to 12 weeks, with progressive biodegradation of PLLA into lactic acid.",
+      "candidacy": "Patients experiencing diffuse cheek hollowing, temporal wasting, or accordion smile lines who desire discreet, long-lasting rejuvenation.",
+      "contraindications": [
+        "History of keloid formation or hypertrophic scarring",
+        "Active skin infection or inflammation in the treatment area",
+        "Known allergy to carboxymethylcellulose or PLLA"
+      ],
+      "typical_duration_minutes": 60,
+      "preparation_guidance": [
+        "Avoid aspirin, ibuprofen, fish oil, and vitamin E for 7 days prior to treatment.",
+        "Stay well hydrated in the 48 hours preceding your appointment."
+      ],
+      "visit_expectations": "Your injector maps structural facial zones. Numbing lidocaine is integrated directly into the suspension, ensuring comfortable treatment.",
+      "aftercare_instructions": [
+        "Follow the 5-5-5 massage protocol: massage the treated area for 5 minutes, 5 times a day, for 5 days to ensure even particle distribution.",
+        "Apply ice packs for 10-minute intervals during the first 24 hours."
+      ],
+      "recovery_downtime": "2 to 3 days of mild swelling and potential tenderness.",
+      "risks_and_side_effects": [
+        "Temporary swelling, bruising, and tenderness at cannula entry points",
+        "Rare risk of small subcutaneous nodules if the 5-5-5 massage protocol is neglected"
+      ],
+      "expected_timeframe": "Gradual collagen production becomes visible at 6 to 8 weeks, with peak clinical results lasting up to 2 years.",
+      "recommended_sessions": "Typically 2 to 3 sessions spaced 6 weeks apart based on volumetric requirement.",
+      "price_type": "starting_at",
+      "price_amount": 950,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Marcus Thorne, MPAS PA-C",
+      "clinician_license": "CA PA License #PA22481",
+      "last_clinical_review_date": "2026-08-18",
+      "is_featured": false,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Why does the fullness seem to disappear a few days after injection?",
+          "answer": "The immediate volume you see is the sterile water carrier fluid, which absorbs within 48 to 72 hours. True neocollagenesis builds gradually over the subsequent 6 to 12 weeks."
+        }
+      ]
+    },
+    {
+      "id": "trt-lip-sculpting",
+      "slug": "restylane-kysse-lip-sculpting",
+      "name": "Micro-Cannula Hyaluronic Lip Sculpting",
+      "category_id": "cat-injectables",
+      "category_slug": "injectables-neurotoxins",
+      "tagline": "Artful lip contouring and vermilion border refinement with flexible XpresHAn technology.",
+      "summary": "Soft, flexible hyaluronic acid gel tailored to preserve natural lip kinetics, restore hydration, and subtly balance perioral proportions.",
+      "hero_image": "/images/treatments/restylane-kysse-lip-sculpting.jpg",
+      "overview": "Restylane Kysse is engineered with proprietary XpresHAn cross-linking technology that allows the hyaluronic acid gel to integrate harmoniously into dynamic mucosal tissues. We prioritize vermilion border definition, philtral column support, and natural eversion over artificial projection.",
+      "what_it_involves": "Precise micro-droplet placement utilizing gentle micro-cannula technique to minimize tissue trauma and bruising.",
+      "target_goals": [
+        "volume-loss-contour"
+      ],
+      "clinical_mechanism": "Cross-linked sodium hyaluronate gel binds water within the submucosal space, providing mechanical volume support while flexing naturally with speech and expressions.",
+      "candidacy": "Adults seeking subtle restoration of age-related perioral thinning, vertical lip line softening, or aesthetic volumetric balance.",
+      "contraindications": [
+        "Severe allergies with anaphylactic history",
+        "Active perioral herpes simplex (cold sore) breakout",
+        "Active autoimmune flare"
+      ],
+      "typical_duration_minutes": 45,
+      "preparation_guidance": [
+        "If you have a history of cold sores, request prophylactic antiviral medication 3 days prior.",
+        "Avoid NSAIDs and alcohol for 3 days before treatment."
+      ],
+      "visit_expectations": "Topical anesthetic cream is applied for 20 minutes prior. You will experience gentle pressure and mild stretching sensations.",
+      "aftercare_instructions": [
+        "Avoid applying lip cosmetics or lipstick for 24 hours.",
+        "Refrain from vigorous exercise, hot beverages, and straws for 48 hours."
+      ],
+      "recovery_downtime": "Mild to moderate swelling for 48 to 72 hours. Final healed contour at 14 days.",
+      "risks_and_side_effects": [
+        "Edema, localized bruising, and temporary asymmetric swelling during healing",
+        "Mild tenderness upon touch"
+      ],
+      "expected_timeframe": "Immediate contour enhancement with optimal settled integration at 2 weeks.",
+      "recommended_sessions": "Results typically maintain for 9 to 12 months.",
+      "price_type": "fixed",
+      "price_amount": 850,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Marcus Thorne, MPAS PA-C",
+      "clinician_license": "CA PA License #PA22481",
+      "last_clinical_review_date": "2026-08-18",
+      "is_featured": false,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Will my lips feel firm or lumpy to the touch?",
+          "answer": "No. The flexible cross-linking of Kysse mimics the softness of natural lip tissue. While mild swelling feels firm for the first 3 to 5 days, once fully integrated the lips feel completely natural."
+        }
+      ]
+    },
+    {
+      "id": "trt-nad",
+      "slug": "nad-cellular-longevity-infusion",
+      "name": "NAD+ Cellular Energy & Longevity Infusion",
+      "category_id": "cat-wellness",
+      "category_slug": "cellular-wellness",
+      "tagline": "Direct intravenous replenishment of nicotinamide adenine dinucleotide for mitochondrial repair.",
+      "summary": "Pharmaceutical-grade coenzyme NAD+ delivered in an isotonic infusion to optimize sirtuin activation, DNA repair mechanisms, and sustained mental clarity.",
+      "hero_image": "/images/treatments/nad-cellular-longevity-infusion.jpg",
+      "overview": "Nicotinamide Adenine Dinucleotide (NAD+) is an indispensable coenzyme found in every living cell. It serves as the primary electron carrier in cellular respiration and is a necessary cofactor for PARPs (DNA repair enzymes) and sirtuins (longevity-associated proteins). Intravenous infusion bypasses digestive degradation for optimal bioavailability.",
+      "what_it_involves": "Controlled intravenous drip administered by a registered nurse in our private wellness suites with vital sign monitoring.",
+      "target_goals": [
+        "dullness-dehydration"
+      ],
+      "clinical_mechanism": "Elevates circulating NAD+ pool, replenishing substrate for mitochondrial ATP synthesis and mitochondrial biogenesis.",
+      "candidacy": "Individuals seeking enhanced cognitive focus, jet-lag recovery, chronic fatigue mitigation, and whole-body cellular resilience.",
+      "contraindications": [
+        "Active oncology treatment without oncologist clearance",
+        "Severe congestive heart failure or renal failure",
+        "Pregnancy or breastfeeding"
+      ],
+      "typical_duration_minutes": 120,
+      "preparation_guidance": [
+        "Eat a balanced protein-rich meal 1 to 2 hours before your infusion.",
+        "Drink at least 16 oz of water before arriving."
+      ],
+      "visit_expectations": "Rest comfortably in our ergonomic treatment loungers with curated soundscapes and heated blankets. Infusion rate is adjusted to maintain gentle comfort.",
+      "aftercare_instructions": [
+        "Continue generous oral hydration throughout the evening.",
+        "Observe restful sleep routines."
+      ],
+      "recovery_downtime": "Zero downtime. Most clients report a state of alert calm and mental focus immediately following the session.",
+      "risks_and_side_effects": [
+        "Transient chest tightness, abdominal cramping, or flushing if dripped too quickly (rapidly reversed by lowering drip rate)",
+        "Mild vein sensitivity at the IV catheter site"
+      ],
+      "expected_timeframe": "Acute surge in mental clarity and stamina within 2 to 4 hours, persisting for several days to weeks.",
+      "recommended_sessions": "An initial series of 3 to 4 infusions followed by monthly maintenance.",
+      "price_type": "fixed",
+      "price_amount": 600,
+      "is_sample_pricing": true,
+      "status": "published",
+      "reviewed_by_clinician": "Dr. Elena Vance, MD",
+      "clinician_license": "CA Med License #A142890",
+      "last_clinical_review_date": "2026-08-15",
+      "is_featured": false,
+      "available_locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "faqs": [
+        {
+          "question": "Why does NAD+ require a slow drip rate?",
+          "answer": "Rapid cellular uptake of NAD+ can trigger transient muscle tightness or stomach fullness. By infusing slowly over 90 to 120 minutes, your body assimilates the coenzyme comfortably without adverse sensations."
+        }
+      ]
+    }
+  ],
+  "providers": [
+    {
+      "id": "prov-vance",
+      "slug": "dr-elena-vance",
+      "full_name": "Dr. Elena Vance, MD, FAAD",
+      "title": "Medical Director & Board-Certified Dermatologist",
+      "credentials": "MD, Stanford University School of Medicine | Board-Certified, American Board of Dermatology",
+      "license_number": "CA Medical License #A142890 (Illustrative Profile)",
+      "bio": "Dr. Elena Vance brings over 14 years of clinical excellence in academic dermatology and regenerative aesthetics. Her clinical research focuses on micro-dosing neuromodulators and biostimulatory scaffolds that respect the patient's intrinsic anatomical harmony.",
+      "photo_url": "https://images.unsplash.com/photo-1594824813576-96b6e5114704?auto=format&fit=crop&w=800&q=80",
+      "areas_of_practice": [
+        "Advanced Facial Volumization",
+        "Fractional Laser Physics & Safety",
+        "Biostimulatory Collagen Induction",
+        "Complex Skin Pigment Architecture"
+      ],
+      "locations": [
+        "beverly-hills",
+        "tribeca-boutique"
+      ],
+      "is_demonstration_profile": true,
+      "status": "published",
+      "display_order": 1
+    },
+    {
+      "id": "prov-thorne",
+      "slug": "marcus-thorne-pac",
+      "full_name": "Marcus Thorne, MPAS, PA-C",
+      "title": "Clinical Director & Master Aesthetic Injector",
+      "credentials": "MS in Physician Assistant Studies, Cornell University | National Aesthetic Trainer",
+      "license_number": "CA PA License #PA22481 (Illustrative Profile)",
+      "bio": "Marcus has spent over a decade specializing exclusively in non-surgical facial sculpting and micro-cannula injectable artistry. Renowned for his meticulous anatomical precision, Marcus lectures nationally on safe vascular injection protocols and natural lip dynamics.",
+      "photo_url": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80",
+      "areas_of_practice": [
+        "Micro-Cannula Tear Trough & Lip Contouring",
+        "Full Facial Architectural Balancing",
+        "Sculptra Biostimulation Protocols",
+        "Jawline & Mandibular Angle Definition"
+      ],
+      "locations": [
+        "beverly-hills"
+      ],
+      "is_demonstration_profile": true,
+      "status": "published",
+      "display_order": 2
+    },
+    {
+      "id": "prov-lin",
+      "slug": "sarah-lin-rn",
+      "full_name": "Sarah Lin, RN, BSN",
+      "title": "Senior Aesthetic Nurse Specialist & Laser Safety Officer",
+      "credentials": "BSN, New York University Rory Meyers College of Nursing | Certified Laser Specialist",
+      "license_number": "NY RN License #954120 (Illustrative Profile)",
+      "bio": "With a background in cardiac intensive care and dermatology surgery, Sarah blends uncompromising clinical safety with an intuitive touch. She specializes in Sciton BBL phototherapy, Morpheus8 fractional RF remodeling, and customized medical hydra-dermabrasion.",
+      "photo_url": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
+      "areas_of_practice": [
+        "Photothermal Pigment Correction",
+        "Radiofrequency Skin Tightening",
+        "Targeted Chemical Peeling Systems",
+        "Post-Procedure Barrier Rehabilitation"
+      ],
+      "locations": [
+        "tribeca-boutique"
+      ],
+      "is_demonstration_profile": true,
+      "status": "published",
+      "display_order": 3
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-beverly-hills",
+      "slug": "beverly-hills",
+      "name": "Bioflora Beverly Hills Sanctuary",
+      "address_line1": "420 North Camden Drive",
+      "address_line2": "Suite 300",
+      "city": "Beverly Hills",
+      "state": "CA",
+      "postal_code": "90210",
+      "phone": "(310) 555-0192",
+      "email": "beverlyhills@bioflora-medspa.example.com",
+      "hours": [
+        {
+          "days": "Monday – Friday",
+          "hours": "9:00 AM – 6:30 PM"
+        },
+        {
+          "days": "Saturday",
+          "hours": "10:00 AM – 5:00 PM"
+        },
+        {
+          "days": "Sunday",
+          "hours": "Closed for Clinical Sanitization"
+        }
+      ],
+      "parking_info": "Private underground valet parking available via Camden Drive entrance. 2 hours validated for booked appointments.",
+      "accessibility_info": "Full ADA compliance with wheelchair accessible elevators, wide-entry treatment suites, and ergonomic adjustable clinical tables.",
+      "map_query_url": "https://maps.google.com/?q=420+N+Camden+Dr+Beverly+Hills+CA",
+      "image_url": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80",
+      "is_flagship": true,
+      "display_order": 1
+    },
+    {
+      "id": "loc-tribeca",
+      "slug": "tribeca-boutique",
+      "name": "Bioflora Tribeca Atelier",
+      "address_line1": "174 Franklin Street",
+      "address_line2": "Penthouse Suite",
+      "city": "New York",
+      "state": "NY",
+      "postal_code": "10013",
+      "phone": "(212) 555-0144",
+      "email": "tribeca@bioflora-medspa.example.com",
+      "hours": [
+        {
+          "days": "Tuesday – Saturday",
+          "hours": "9:30 AM – 7:00 PM"
+        },
+        {
+          "days": "Sunday – Monday",
+          "hours": "Closed"
+        }
+      ],
+      "parking_info": "Dedicated parking garage available at 180 Franklin Street with direct covered passage into our private lobby elevator.",
+      "accessibility_info": "Direct keycard elevator access to Penthouse, zero-threshold doorways, and ADA-compliant restroom facilities.",
+      "map_query_url": "https://maps.google.com/?q=174+Franklin+St+New+York+NY",
+      "image_url": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+      "is_flagship": false,
+      "display_order": 2
+    }
+  ],
+  "offers": [
+    {
+      "id": "off-welcome",
+      "slug": "curated-new-patient-experience",
+      "title": "The Bioflora Diagnostic & Radiance Induction",
+      "tagline": "Comprehensive clinical diagnostic, digital skin imaging, and signature hydra-infusion.",
+      "description": "Designed for new patients seeking an evidence-based roadmap. Includes 3D cross-polarized digital skin scanning, doctor-led anatomical analysis, and a 50-minute Signature Botanical Hydrafacial.",
+      "price_display": "$375 (Value $525)",
+      "savings_display": "Save $150",
+      "valid_until": "2026-12-31",
+      "terms": [
+        "Limited to first-time Bioflora clients only.",
+        "Cannot be combined with membership service credits or external promotional vouchers.",
+        "Requires a $50 refundable deposit upon reservation in accordance with our 48-hour cancellation policy."
+      ],
+      "is_active": true,
+      "category": "first_time",
+      "booking_link": "/booking?offer=curated-new-patient-experience"
+    },
+    {
+      "id": "off-collagen-trio",
+      "slug": "morpheus8-series-package",
+      "title": "The Neocollagenesis Transformation Trio",
+      "tagline": "A course of 3 Morpheus8 Fractional RF treatments with complimentary post-procedure recovery kits.",
+      "description": "Our complete structural remodeling protocol spanning 16 weeks. Rebuilds deep dermal collagen and tightens submental contours for long-term definition.",
+      "price_display": "$2,950 (Value $3,650)",
+      "savings_display": "Save $700",
+      "valid_until": "2026-11-30",
+      "terms": [
+        "Must be redeemed within 12 months of purchase.",
+        "Non-transferable between patients.",
+        "Subject to clinical medical suitability assessment."
+      ],
+      "is_active": true,
+      "category": "package",
+      "booking_link": "/booking?offer=morpheus8-series-package"
+    }
+  ],
+  "memberships": [
+    {
+      "id": "mem-flora",
+      "slug": "the-flora-tier",
+      "name": "The Flora Wellness Tier",
+      "tier_level": 1,
+      "price_monthly": 245,
+      "billing_period": "monthly",
+      "description": "Consistent monthly maintenance for sustained skin barrier vitality and luminosity.",
+      "included_monthly_treatments": [
+        "Choice of 1 monthly Signature Botanical Hydrafacial or Clinical Enzyme Peel",
+        "Complimentary Full-Spectrum LED Photomodulation session"
+      ],
+      "discount_percentage_on_services": 10,
+      "perks": [
+        "10% off all injectable neurotoxins and dermal fillers",
+        "10% off clinical homecare skincare formulations",
+        "Priority online booking reservation window",
+        "Rollover of up to 2 unused monthly service credits"
+      ],
+      "terms": [
+        "3-month minimum commitment; month-to-month thereafter.",
+        "Cancellable with 30 days written notice.",
+        "Credits may not be transferred to other individuals."
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mem-botanica",
+      "slug": "the-botanica-reserve",
+      "name": "The Botanica Reserve",
+      "tier_level": 2,
+      "price_monthly": 495,
+      "billing_period": "monthly",
+      "description": "Our premier regenerative tier combining laser phototherapy with deep clinical cellular care.",
+      "included_monthly_treatments": [
+        "Choice of 1 monthly BBL HERO Photofacial or Deluxe RF Treatment",
+        "Quarterly Skin Clarifying Chemical Peel",
+        "Bi-annual Comprehensive Skin Diagnostic Refresh"
+      ],
+      "discount_percentage_on_services": 15,
+      "perks": [
+        "15% off all injectables and biostimulator therapies",
+        "15% off all retail clinical skincare products",
+        "Complimentary private sanctuary lounge access with botanical tea service",
+        "Guaranteed emergency scheduling within 48 hours"
+      ],
+      "terms": [
+        "6-month initial commitment.",
+        "30-day cancellation notice required.",
+        "Unused credits roll over for 12 months."
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mem-elixir",
+      "slug": "the-clinical-elixir-society",
+      "name": "The Clinical Elixir Society",
+      "tier_level": 3,
+      "price_monthly": 895,
+      "billing_period": "monthly",
+      "description": "Bespoke executive medical aesthetics and cellular longevity curation.",
+      "included_monthly_treatments": [
+        "Bespoke Monthly Combination Protocol (Laser + Hydrafacial + NAD+ IV Infusion)",
+        "Continuous direct clinical concierge messaging with your provider",
+        "Bi-annual complete facial ultrasound tissue mapping"
+      ],
+      "discount_percentage_on_services": 20,
+      "perks": [
+        "20% off all clinical services and retail formulations",
+        "Complimentary companion guest pass twice annually",
+        "Dedicated after-hours clinician phone line",
+        "Private VIP suite access with private discreet exit"
+      ],
+      "terms": [
+        "12-month commitment.",
+        "Limited to 25 active members per location to preserve absolute exclusivity."
+      ],
+      "is_active": true
+    }
+  ],
+  "consultation_requests": [
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792596508520-w4rnv",
+      "reference_number": "BIO-REQ-2026-2268",
+      "created_at": "2026-10-21T15:28:28.520Z"
+    },
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792595991174-8q6py",
+      "reference_number": "BIO-REQ-2026-9284",
+      "created_at": "2026-10-21T15:19:51.174Z"
+    },
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792595421415-rkxfi",
+      "reference_number": "BIO-REQ-2026-8939",
+      "created_at": "2026-10-21T15:10:21.415Z"
+    },
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792594763056-1p06h",
+      "reference_number": "BIO-REQ-2026-1772",
+      "created_at": "2026-10-21T14:59:23.056Z"
+    },
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792594096668-6nxfv",
+      "reference_number": "BIO-REQ-2026-2944",
+      "created_at": "2026-10-21T14:48:16.668Z"
+    },
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792594066889-xnssi",
+      "reference_number": "BIO-REQ-2026-7974",
+      "created_at": "2026-10-21T14:47:46.889Z"
+    }
+  ],
+  "sandbox_bookings": [
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulators",
+      "location_slug": "beverly-hills",
+      "provider_slug": "dr-elena-vance",
+      "appointment_date": "2026-11-05",
+      "time_slot": "01:30 PM",
+      "patient_name": "Sophia Loren",
+      "patient_email": "sophia@example.com",
+      "patient_phone": "3105550190",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792596508509-bmayu",
+      "reference_number": "BIO-BKG-2026-25293",
+      "created_at": "2026-10-21T15:28:28.509Z"
+    },
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulators",
+      "location_slug": "beverly-hills",
+      "provider_slug": "dr-elena-vance",
+      "appointment_date": "2026-11-05",
+      "time_slot": "01:30 PM",
+      "patient_name": "Sophia Loren",
+      "patient_email": "sophia@example.com",
+      "patient_phone": "3105550190",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792595991184-wf7hk",
+      "reference_number": "BIO-BKG-2026-67367",
+      "created_at": "2026-10-21T15:19:51.184Z"
+    },
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulator Injections",
+      "location_slug": "beverly-hills",
+      "provider_slug": "marcus-thorne-pac",
+      "appointment_date": "2026-10-21",
+      "time_slot": "09:30 AM",
+      "patient_name": "krish ",
+      "patient_email": "tvaibhav619@gmail.com",
+      "patient_phone": "6260352239",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792595651258-mdfmj",
+      "reference_number": "BIO-BKG-2026-41683",
+      "created_at": "2026-10-21T15:14:11.259Z"
+    },
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulators",
+      "location_slug": "beverly-hills",
+      "provider_slug": "dr-elena-vance",
+      "appointment_date": "2026-11-05",
+      "time_slot": "01:30 PM",
+      "patient_name": "Sophia Loren",
+      "patient_email": "sophia@example.com",
+      "patient_phone": "3105550190",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792595421398-21k3j",
+      "reference_number": "BIO-BKG-2026-44111",
+      "created_at": "2026-10-21T15:10:21.398Z"
+    },
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulators",
+      "location_slug": "beverly-hills",
+      "provider_slug": "dr-elena-vance",
+      "appointment_date": "2026-11-05",
+      "time_slot": "01:30 PM",
+      "patient_name": "Sophia Loren",
+      "patient_email": "sophia@example.com",
+      "patient_phone": "3105550190",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792594763044-x6so7",
+      "reference_number": "BIO-BKG-2026-23712",
+      "created_at": "2026-10-21T14:59:23.044Z"
+    },
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulators",
+      "location_slug": "beverly-hills",
+      "provider_slug": "dr-elena-vance",
+      "appointment_date": "2026-11-05",
+      "time_slot": "01:30 PM",
+      "patient_name": "Sophia Loren",
+      "patient_email": "sophia@example.com",
+      "patient_phone": "3105550190",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792594066885-xbvcv",
+      "reference_number": "BIO-BKG-2026-99019",
+      "created_at": "2026-10-21T14:47:46.885Z"
+    }
+  ],
+  "journal_articles": [
+    {
+      "id": "art-biostimulators",
+      "slug": "the-science-of-biostimulators-collagen-restoration",
+      "title": "Beyond Hyaluronic Acid: How Biostimulatory Polymers Rebuild Facial Architecture",
+      "summary": "An exploration of Poly-L-Lactic Acid (PLLA) and calcium hydroxyapatite mechanisms in activating fibroblast neocollagenesis versus traditional gel fillers.",
+      "body_markdown": "\nAesthetic medicine has undergone a profound paradigm shift over the past decade. Where early approaches focused primarily on mechanical filling—inserting cohesive hyaluronic acid gels to physically elevate depressions—modern clinical dermatology prioritizes **cellular biostimulation**.\n\n### The Biology of Collagen Decline\nBeginning in our mid-twenties, endogenous synthesis of Type I and Type III collagen declines by roughly 1% per annum. Compounded by ultraviolet photodamage, intrinsic chronological aging fragments the collagen lattice, causing dermal thinning and structural tissue descent.\n\n### The Mechanism of PLLA (Sculptra)\nPoly-L-Lactic Acid does not act as a traditional filler. Upon supraperiosteal micro-suspension deposition, the microscopic PLLA crystals stimulate a controlled, subclinical tissue response. \n1. **Macrophage Recruitment:** Host macrophages recognize the biocompatible polymer.\n2. **Fibroblastic Proliferation:** Cytokines recruit localized fibroblasts to the scaffold.\n3. **De Novo Neocollagenesis:** Over a 6-to-12-week timeframe, your fibroblasts deposit fresh, organized human collagen fibers.\n4. **Natural Biodegradation:** The PLLA polymer safely hydrolyzes into lactic acid, carbon dioxide, and water.\n\nThe consequence is genuine structural rejuvenation that mirrors your facial architecture from years prior—without the telltale pillowing or over-filled aesthetics associated with excessive gel volumes.\n    ",
+      "cover_image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+      "author_name": "Dr. Elena Vance, MD, FAAD",
+      "author_role": "Medical Director, Bioflora Medical Spa",
+      "medical_reviewer_name": "Dr. Elena Vance, MD",
+      "medical_reviewer_title": "Board-Certified Dermatologist",
+      "published_at": "2026-07-14",
+      "read_time_minutes": 6,
+      "category": "Clinical Research",
+      "tags": [
+        "Biostimulators",
+        "Sculptra",
+        "Collagen",
+        "Anti-Aging"
+      ],
+      "status": "published"
+    },
+    {
+      "id": "art-retinoids-peptides",
+      "slug": "retinoid-tolerance-barrier-preservation-guide",
+      "title": "Mastering Topical Retinoids: Balancing Cellular Turnover with Barrier Integrity",
+      "summary": "Clinical strategies for introducing prescription tretinoin and encapsulated retinoids without triggering chronic barrier degradation or subclinical inflammation.",
+      "body_markdown": "\nTopical retinoids remain the gold standard in evidence-based dermatology for photodamage mitigation and follicular regulation. Yet, patient non-compliance remains staggeringly high due to retinoid dermatitis—characterized by xerosis, erythema, and epidermal desquamation.\n\n### The Retinoid Reaction\nWhen retinoic acid binds to nuclear retinoic acid receptors (RARs), it accelerates epidermal mitosis. If this occurs faster than the stratum corneum can synthesize intercellular lipid bilayers (ceramides, cholesterol, and free fatty acids), barrier function falters.\n\n### The Bioflora 'Sandwich' Protocol\nTo harvest the profound cellular benefits of retinoic acid without compromising barrier homeostasis:\n- **Phase 1 (Hydrate):** Apply a physiologically balanced barrier moisturizer rich in ceramides and ectoin.\n- **Phase 2 (Deliver):** Wait 10 minutes until touch-dry, then dispense a pea-sized quantity of retinoid.\n- **Phase 3 (Seal):** Reapply a thin layer of restorative botanical balm.\n\nThis buffer moderates the trans-epidermal flux rate of the molecule without degrading its long-term nuclear receptor efficacy.\n    ",
+      "cover_image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+      "author_name": "Sarah Lin, RN, BSN",
+      "author_role": "Senior Aesthetic Nurse Specialist",
+      "medical_reviewer_name": "Dr. Elena Vance, MD",
+      "medical_reviewer_title": "Board-Certified Dermatologist",
+      "published_at": "2026-08-02",
+      "read_time_minutes": 5,
+      "category": "Skincare Science",
+      "tags": [
+        "Retinoids",
+        "Barrier Health",
+        "Clinical Skincare"
+      ],
+      "status": "published"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "author_name": "Clarissa V.",
+      "treatment_received": "Precision Neuromodulators & Hydrafacial",
+      "location_name": "Beverly Hills Flagship",
+      "rating": 5,
+      "comment": "The clinical precision at Bioflora is truly unmatched. Dr. Vance has an extraordinary eye for proportion. My forehead lines are completely smoothed, yet my face remains expressive and completely natural. The facility feels like a private Japanese sanctuary.",
+      "date_posted": "2026-09-12",
+      "source": "verified_patient",
+      "is_verified": true,
+      "clinic_response": "Thank you Clarissa. Preserving natural facial animation while softening expression lines is the cornerstone of our clinical philosophy."
+    },
+    {
+      "id": "rev-2",
+      "author_name": "Julian H.",
+      "treatment_received": "Morpheus8 RF Remodeling (3-Session Series)",
+      "location_name": "Tribeca Atelier",
+      "rating": 5,
+      "comment": "I was hesitant about the downtime with RF microneedling, but Sarah Lin prepared me thoroughly and the topical numbing was exceptional. At 4 months out, the tightness along my jawline and improvement in my acne scarring is remarkable.",
+      "date_posted": "2026-08-28",
+      "source": "verified_patient",
+      "is_verified": true,
+      "clinic_response": "We are thrilled with your structural remodeling results, Julian! Collagen synthesis continues to mature through month six."
+    },
+    {
+      "id": "rev-3",
+      "author_name": "Genevieve M.",
+      "treatment_received": "BBL HERO Photofacial",
+      "location_name": "Beverly Hills Flagship",
+      "rating": 5,
+      "comment": "Years of coastal sun damage and broken capillaries cleared after just two BBL HERO sessions. Transparent pricing, zero sales pressure, and genuine physician oversight.",
+      "date_posted": "2026-07-19",
+      "source": "verified_patient",
+      "is_verified": true
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "log-1792596508522-zh3v",
+      "timestamp": "2026-10-21T15:28:28.522Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-2268",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792596508515-9e48",
+      "timestamp": "2026-10-21T15:28:28.515Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792595991186-p8oc",
+      "timestamp": "2026-10-21T15:19:51.186Z",
+      "actor": "Public User (Sandbox)",
+      "action": "Create Sandbox Booking",
+      "entity_type": "sandbox_booking",
+      "entity_id": "BIO-BKG-2026-67367",
+      "details": "Treatment: Precision Neuromodulators, Date: 2026-11-05 at 01:30 PM"
+    },
+    {
+      "id": "log-1792595991176-uym2",
+      "timestamp": "2026-10-21T15:19:51.176Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-9284",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792595991168-oigj",
+      "timestamp": "2026-10-21T15:19:51.168Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792595991161-wv3i",
+      "timestamp": "2026-10-21T15:19:51.161Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"production\"}"
+    },
+    {
+      "id": "log-1792595727297-p8md",
+      "timestamp": "2026-10-21T15:15:27.297Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792595719717-ip7q",
+      "timestamp": "2026-10-21T15:15:19.717Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"production\"}"
+    },
+    {
+      "id": "log-1792595710943-ls5m",
+      "timestamp": "2026-10-21T15:15:10.943Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792595706675-ty0h",
+      "timestamp": "2026-10-21T15:15:06.675Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"production\"}"
+    },
+    {
+      "id": "log-1792595651260-qg06",
+      "timestamp": "2026-10-21T15:14:11.260Z",
+      "actor": "Public User (Sandbox)",
+      "action": "Create Sandbox Booking",
+      "entity_type": "sandbox_booking",
+      "entity_id": "BIO-BKG-2026-41683",
+      "details": "Treatment: Precision Neuromodulator Injections, Date: 2026-10-21 at 09:30 AM"
+    },
+    {
+      "id": "log-1792595421417-3h9b",
+      "timestamp": "2026-10-21T15:10:21.417Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-8939",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792595421408-v6h2",
+      "timestamp": "2026-10-21T15:10:21.408Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792595421401-0b9d",
+      "timestamp": "2026-10-21T15:10:21.401Z",
+      "actor": "Public User (Sandbox)",
+      "action": "Create Sandbox Booking",
+      "entity_type": "sandbox_booking",
+      "entity_id": "BIO-BKG-2026-44111",
+      "details": "Treatment: Precision Neuromodulators, Date: 2026-11-05 at 01:30 PM"
+    },
+    {
+      "id": "log-1792594763059-4686",
+      "timestamp": "2026-10-21T14:59:23.059Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-1772",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792594763050-qtvn",
+      "timestamp": "2026-10-21T14:59:23.050Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792594096670-yxm1",
+      "timestamp": "2026-10-21T14:48:16.670Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-2944",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792594096662-qtq6",
+      "timestamp": "2026-10-21T14:48:16.662Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792594096657-amia",
+      "timestamp": "2026-10-21T14:48:16.657Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"production\"}"
+    },
+    {
+      "id": "log-1792594066893-r49w",
+      "timestamp": "2026-10-21T14:47:46.893Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-7974",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "audit-init",
+      "timestamp": "2026-10-21T14:47:46.884Z",
+      "actor": "System",
+      "action": "Database Initialized",
+      "entity_type": "system",
+      "entity_id": "global",
+      "details": "Bioflora database successfully seeded with clinical models and initial portfolio demonstration state."
+    }
+  ]
+}

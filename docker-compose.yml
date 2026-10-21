@@ -1,0 +1,28 @@
+services:
+  bioflora-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bioflora_platform
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - OPERATING_MODE=demonstration
+      - BOOKING_PROVIDER=sandbox
+      - ADMIN_PASSWORD=bioflora-lux-2026!
+      - ADMIN_SESSION_SECRET=bioflora-super-secure-production-secret-replace-me-128bits
+      - NEXT_PUBLIC_SITE_URL=http://localhost:3000
+    volumes:
+      - bioflora_data:/app/.data
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  bioflora_data:
+    driver: local
