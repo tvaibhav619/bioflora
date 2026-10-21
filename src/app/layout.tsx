@@ -75,6 +75,10 @@ export default function RootLayout({
       lang="en"
       className={`${serifFont.variable} ${sansFont.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className="min-h-full flex flex-col bg-ivory text-charcoal font-sans selection:bg-champagne-light selection:text-forest overflow-x-hidden w-full pb-16 lg:pb-0">
         {/* Demonstration Mode Notice for Portfolio Showcase */}
         <DemonstrationBanner />

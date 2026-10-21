@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Clock,
   ShieldCheck,
@@ -181,11 +182,13 @@ export default async function TreatmentDetailPage({
           {/* Right Hero Image Card */}
           <div className="lg:col-span-5">
             <div className="rounded-2xl overflow-hidden border border-stone shadow-xl bg-stone-light aspect-[4/3] sm:aspect-[4/3] lg:aspect-[5/4] relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={treatment.hero_image}
                 alt={treatment.name}
-                className="w-full h-full object-cover"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
               />
             </div>
           </div>
@@ -386,10 +389,11 @@ export default async function TreatmentDetailPage({
                     href={`/team/${p.slug}`}
                     className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-sage-light transition-colors group"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={p.photo_url}
                       alt={p.full_name}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 rounded-full object-cover border border-stone"
                     />
                     <div>

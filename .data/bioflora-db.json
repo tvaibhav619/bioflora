@@ -14,7 +14,7 @@
     "email_provider": "mock",
     "email_provider_configured": false,
     "stripe_configured": false,
-    "last_updated": "2026-10-21T15:59:16.408Z"
+    "last_updated": "2026-10-21T16:15:14.512Z"
   },
   "categories": [
     {
@@ -23,7 +23,7 @@
       "name": "Neuromodulators & Dermal Sculpting",
       "tagline": "Subtle architectural enhancement and expressive softening.",
       "description": "Doctor-led injectable treatments designed to soften hyperdynamic facial lines and restore natural volumetric contours with precision micro-dosing.",
-      "hero_image": "/images/categories/injectables.jpg",
+      "hero_image": "/images/categories/injectables.webp",
       "display_order": 1,
       "is_active": true
     },
@@ -33,7 +33,7 @@
       "name": "Regenerative Skin Rejuvenation",
       "tagline": "Stimulating neocollagenesis at cellular depths.",
       "description": "Advanced RF microneedling, autologous PRP, and clinical bio-stimulators engineered to rebuild the skin's structural extracellular matrix.",
-      "hero_image": "/images/categories/rejuvenation.jpg",
+      "hero_image": "/images/categories/rejuvenation.webp",
       "display_order": 2,
       "is_active": true
     },
@@ -43,7 +43,7 @@
       "name": "Precision Laser & Phototherapy",
       "tagline": "Targeted optical wavelengths for tone and micro-clarity.",
       "description": "Medical-grade fractional lasers and BBL phototherapy to clear stubborn dyschromia, vascular flushing, and photodamage with calibrated safety.",
-      "hero_image": "/images/categories/lasers.jpg",
+      "hero_image": "/images/categories/lasers.webp",
       "display_order": 3,
       "is_active": true
     },
@@ -53,7 +53,7 @@
       "name": "Clinical Facials & Vortex Hydration",
       "tagline": "Deep epidermal cleansing and botanical serum infusion.",
       "description": "Non-invasive vortex extraction paired with bespoke pharmaceutical-grade antioxidants, hyaluronic acid, and LED photomodulation.",
-      "hero_image": "/images/categories/facials.jpg",
+      "hero_image": "/images/categories/facials.webp",
       "display_order": 4,
       "is_active": true
     },
@@ -63,7 +63,7 @@
       "name": "Cellular Longevity & IV Nutrients",
       "tagline": "Systemic vitality, antioxidant replenishment, and recovery.",
       "description": "Intravenous micronutrient therapy and coenzyme NAD+ infusions formulated to support cellular energy metabolism and whole-body resilience.",
-      "hero_image": "/images/categories/wellness.jpg",
+      "hero_image": "/images/categories/wellness.webp",
       "display_order": 5,
       "is_active": true
     }
@@ -140,7 +140,7 @@
       "category_slug": "injectables-neurotoxins",
       "tagline": "Targeted smoothing of hyperdynamic lines with micro-dose anatomical precision.",
       "summary": "FDA-approved onabotulinumtoxinA administered by board-certified practitioners to gently relax dynamic facial muscles while safeguarding natural emotive movement.",
-      "hero_image": "/images/treatments/botox-cosmetic.jpg",
+      "hero_image": "/images/treatments/botox-cosmetic.webp",
       "overview": "Botox Cosmetic temporarily moderates localized neuromuscular signaling in targeted facial muscles. By softening repetitive contraction in the glabella (frown lines), frontalis (forehead), and orbicularis oculi (crow's feet), the overlying skin rests, preventing existing creases from deepening and smoothing surface lines.",
       "what_it_involves": "Following a comprehensive facial kinetic assessment, microscopic quantities of purified neurotoxin are deposited with ultra-fine gauge needles into precise muscular vectors.",
       "target_goals": [
@@ -205,7 +205,7 @@
       "category_slug": "skin-rejuvenation",
       "tagline": "Fractional radiofrequency delivering deep neocollagenesis and tissue contraction.",
       "summary": "State-of-the-art fractional RF microneedling that penetrates up to 4mm into subdermal adipose architecture, stimulating profound collagen synthesis and skin tightening.",
-      "hero_image": "/images/treatments/rf-microneedling-morpheus.jpg",
+      "hero_image": "/images/treatments/rf-microneedling-morpheus.webp",
       "overview": "Morpheus8 combines the mechanical collagen stimulation of medical microneedling with thermal radiofrequency energy. By heating the subdermal tissue layer up to 4mm, it stimulates immediate fibroblastic contraction and long-term neocollagenesis to firm lax skin and refine irregular texture.",
       "what_it_involves": "Gold-plated micro-pins penetrate the dermis and subdermal adipose tissue to discharge fractionated RF thermal bursts at programmed depths.",
       "target_goals": [
@@ -268,7 +268,7 @@
       "category_slug": "facials-hydration",
       "tagline": "Patented vortex vacuum extraction with tailored botanical peptide infusion.",
       "summary": "A medical-grade, multi-stage hydra-dermabrasion treatment that purifies congested pores, gently sloughs cellular debris, and bathes the skin in hyaluronic acid and botanical polyphenols.",
-      "hero_image": "/images/treatments/bioflora-signature-hydrafacial.jpg",
+      "hero_image": "/images/treatments/bioflora-signature-hydrafacial.webp",
       "overview": "The Bioflora Signature Hydrafacial merges advanced medical hydro-peeling technology with custom botanical actives. A four-step vortex system cleanses, exfoliates, painlessly extracts sebum, and infuses proprietary antioxidant complexes to revive exhausted, dehydrated skin without irritation.",
       "what_it_involves": "Painless spiral suction paired with specialized treatment tips to infuse glycolic-salicylic peeling solutions, followed by intensive vortex peptide saturation.",
       "target_goals": [
@@ -326,7 +326,7 @@
       "category_slug": "laser-phototherapy",
       "tagline": "Sciton BroadBand Light delivering rapid photo-rejuvenation and pigment correction.",
       "summary": "High-speed pulsed optical energy that targets melanin clusters, rosacea-associated erythema, and broken capillaries to restore uniform, luminous skin tone.",
-      "hero_image": "/images/treatments/broadband-light-bbl-hero.jpg",
+      "hero_image": "/images/treatments/broadband-light-bbl-hero.webp",
       "overview": "BroadBand Light (BBL) HERO operates on the principle of selective photothermolysis. Optical filters isolate targeted wavelengths that are preferentially absorbed by oxyhemoglobin and melanin. This coagulates dilated capillaries and breaks down stubborn sun spots, which flake off naturally over several days.",
       "what_it_involves": "Chilled sapphire crystal glides continuously across the skin emitting ultra-fast pulses of calibrated broad-spectrum light.",
       "target_goals": [
@@ -385,7 +385,7 @@
       "category_slug": "injectables-neurotoxins",
       "tagline": "Gradual, bio-regenerative restoration of deep structural facial volume.",
       "summary": "A collagen-stimulating injectable that activates your body's natural regenerative processes to rebuild lost volume and soften deep smile lines over time.",
-      "hero_image": "/images/treatments/sculptra-biostimulator.jpg",
+      "hero_image": "/images/treatments/sculptra-biostimulator.webp",
       "overview": "Unlike hyaluronic acid dermal fillers that provide immediate gel-based volume, Sculptra utilizes biocompatible Poly-L-Lactic Acid (PLLA) micro-particles. As the carrier liquid absorbs, the PLLA particles stimulate a controlled subclinical inflammatory response that encourages fibroblasts to produce dense Type I collagen.",
       "what_it_involves": "Reconstituted PLLA micro-suspension is injected using blunt-tip safety micro-cannulas into the deep supraperiosteal and sub-dermal planes.",
       "target_goals": [
@@ -443,7 +443,7 @@
       "category_slug": "injectables-neurotoxins",
       "tagline": "Artful lip contouring and vermilion border refinement with flexible XpresHAn technology.",
       "summary": "Soft, flexible hyaluronic acid gel tailored to preserve natural lip kinetics, restore hydration, and subtly balance perioral proportions.",
-      "hero_image": "/images/treatments/restylane-kysse-lip-sculpting.jpg",
+      "hero_image": "/images/treatments/restylane-kysse-lip-sculpting.webp",
       "overview": "Restylane Kysse is engineered with proprietary XpresHAn cross-linking technology that allows the hyaluronic acid gel to integrate harmoniously into dynamic mucosal tissues. We prioritize vermilion border definition, philtral column support, and natural eversion over artificial projection.",
       "what_it_involves": "Precise micro-droplet placement utilizing gentle micro-cannula technique to minimize tissue trauma and bruising.",
       "target_goals": [
@@ -500,7 +500,7 @@
       "category_slug": "cellular-wellness",
       "tagline": "Direct intravenous replenishment of nicotinamide adenine dinucleotide for mitochondrial repair.",
       "summary": "Pharmaceutical-grade coenzyme NAD+ delivered in an isotonic infusion to optimize sirtuin activation, DNA repair mechanisms, and sustained mental clarity.",
-      "hero_image": "/images/treatments/nad-cellular-longevity-infusion.jpg",
+      "hero_image": "/images/treatments/nad-cellular-longevity-infusion.webp",
       "overview": "Nicotinamide Adenine Dinucleotide (NAD+) is an indispensable coenzyme found in every living cell. It serves as the primary electron carrier in cellular respiration and is a necessary cofactor for PARPs (DNA repair enzymes) and sirtuins (longevity-associated proteins). Intravenous infusion bypasses digestive degradation for optimal bioavailability.",
       "what_it_involves": "Controlled intravenous drip administered by a registered nurse in our private wellness suites with vital sign monitoring.",
       "target_goals": [
@@ -801,6 +801,23 @@
     }
   ],
   "consultation_requests": [
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
+      "id": "req-1792599314520-d1os1",
+      "reference_number": "BIO-REQ-2026-6772",
+      "created_at": "2026-10-21T16:15:14.520Z"
+    },
     {
       "full_name": "Test Patient",
       "email": "testpatient@example.com",
@@ -1159,6 +1176,33 @@
     }
   ],
   "audit_logs": [
+    {
+      "id": "log-1792599314524-0hiv",
+      "timestamp": "2026-10-21T16:15:14.524Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-6772",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792599314515-howa",
+      "timestamp": "2026-10-21T16:15:14.515Z",
+      "actor": "Public User (Sandbox)",
+      "action": "Create Sandbox Booking",
+      "entity_type": "sandbox_booking",
+      "entity_id": "BIO-BKG-2026-77660",
+      "details": "Treatment: Precision Neuromodulators, Date: 2026-11-05 at 01:30 PM"
+    },
+    {
+      "id": "log-1792599314510-ab0i",
+      "timestamp": "2026-10-21T16:15:14.510Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
     {
       "id": "log-1792598356424-4edv",
       "timestamp": "2026-10-21T15:59:16.424Z",

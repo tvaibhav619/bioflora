@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ShieldCheck,
   Award,
@@ -160,12 +161,15 @@ export default async function HomePage() {
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Main Image */}
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-stone shadow-2xl bg-stone-light">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80"
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden border border-stone shadow-2xl bg-stone-light relative">
+                  <Image
+                    src="/images/hero-suite.webp"
                     alt="Bioflora luxury treatment suite with natural botanical light"
-                    className="w-full h-full object-cover"
+                    fill
+                    priority
+                    fetchPriority="high"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -281,14 +285,15 @@ export default async function HomePage() {
               >
                 <div>
                   <div className="h-48 sm:h-52 w-full relative overflow-hidden bg-stone-light">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={cat.hero_image}
                       alt={cat.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity z-10" />
                   </div>
                   <div className="p-5">
                     <h3 className="font-serif-luxury text-xl font-medium text-forest group-hover:text-champagne-dark transition-colors">
@@ -333,14 +338,15 @@ export default async function HomePage() {
               >
                 <div>
                   <div className="h-48 sm:h-52 w-full relative overflow-hidden bg-stone-light">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={treatment.hero_image}
                       alt={treatment.name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
                       loading="lazy"
                     />
-                    <span className="absolute top-3 left-3 bg-forest/90 text-ivory text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md">
+                    <span className="absolute top-3 left-3 bg-forest/90 text-ivory text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md z-10">
                       {treatment.category_slug.replace("-", " ")}
                     </span>
                   </div>
@@ -491,15 +497,16 @@ export default async function HomePage() {
               >
                 <div>
                   <div className="h-60 sm:h-64 w-full relative overflow-hidden bg-stone-light">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={provider.photo_url}
                       alt={provider.full_name}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
                       loading="lazy"
                     />
                     {provider.is_demonstration_profile && (
-                      <span className="absolute bottom-3 left-3 bg-charcoal/80 text-ivory text-[9px] uppercase font-mono px-2 py-0.5 rounded">
+                      <span className="absolute bottom-3 left-3 bg-charcoal/80 text-ivory text-[9px] uppercase font-mono px-2 py-0.5 rounded z-10">
                         Illustrative Profile
                       </span>
                     )}
@@ -606,14 +613,15 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="h-56 sm:h-64 rounded-2xl overflow-hidden border border-stone bg-stone-light relative group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80"
                 alt="Beverly Hills clinical treatment suite with private lounge"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent flex items-end p-5 z-10">
                 <span className="text-ivory font-serif-luxury text-lg">
                   Beverly Hills VIP Suite
                 </span>
@@ -621,14 +629,15 @@ export default async function HomePage() {
             </div>
 
             <div className="h-56 sm:h-64 rounded-2xl overflow-hidden border border-stone bg-stone-light relative group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80"
                 alt="Tribeca botanical waiting lounge with natural lighting"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent flex items-end p-5 z-10">
                 <span className="text-ivory font-serif-luxury text-lg">
                   Tribeca Penthouse Atelier
                 </span>
@@ -636,14 +645,15 @@ export default async function HomePage() {
             </div>
 
             <div className="h-56 sm:h-64 rounded-2xl overflow-hidden border border-stone bg-stone-light relative group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80"
                 alt="Sterile clinical preparation suite with FDA-cleared devices"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent flex items-end p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent flex items-end p-5 z-10">
                 <span className="text-ivory font-serif-luxury text-lg">
                   Sterile Clinical Prep Room
                 </span>
