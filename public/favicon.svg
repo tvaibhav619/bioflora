@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="biofloraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#183B32" />
+      <stop offset="100%" stop-color="#112A24" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5D3B3" />
+      <stop offset="50%" stop-color="#B99A6A" />
+      <stop offset="100%" stop-color="#967B4F" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded badge -->
+  <rect width="64" height="64" rx="16" fill="url(#biofloraGrad)" />
+  <rect width="60" height="60" x="2" y="2" rx="14" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.6" />
+
+  <!-- Botanical Leaf & Seraphic Bloom Motif -->
+  <path d="M32 12 C32 12, 46 22, 46 36 C46 45, 39 52, 32 52 C25 52, 18 45, 18 36 C18 22, 32 12, 32 12 Z" 
+        fill="none" 
+        stroke="url(#goldGrad)" 
+        stroke-width="2.5" 
+        stroke-linecap="round" />
+
+  <!-- Inner stem & vein -->
+  <path d="M32 18 L32 46" 
+        stroke="url(#goldGrad)" 
+        stroke-width="2" 
+        stroke-linecap="round" />
+
+  <!-- Lateral branch leaves -->
+  <path d="M32 30 C37 26, 42 27, 43 28" 
+        stroke="url(#goldGrad)" 
+        stroke-width="1.8" 
+        stroke-linecap="round" />
+  <path d="M32 37 C27 33, 22 34, 21 35" 
+        stroke="url(#goldGrad)" 
+        stroke-width="1.8" 
+        stroke-linecap="round" />
+  <path d="M32 24 C28 21, 24 22, 23 23" 
+        stroke="url(#goldGrad)" 
+        stroke-width="1.8" 
+        stroke-linecap="round" />
+
+  <!-- Subtle central radiance gem -->
+  <circle cx="32" cy="14" r="2" fill="url(#goldGrad)" />
+</svg>
