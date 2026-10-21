@@ -3,7 +3,7 @@
     "id": "global-settings",
     "clinic_name": "BIOFLORA Medical Spa",
     "tagline": "Refined aesthetic medicine & botanical skin wellness.",
-    "operating_mode": "demonstration",
+    "operating_mode": "production",
     "announcement_active": true,
     "announcement_text": "Complimentary Comprehensive Skin Diagnostic included with all initial consultations.",
     "announcement_link": "/consultation",
@@ -14,7 +14,7 @@
     "email_provider": "mock",
     "email_provider_configured": false,
     "stripe_configured": false,
-    "last_updated": "2026-10-21T15:42:08.821Z"
+    "last_updated": "2026-10-21T15:59:16.408Z"
   },
   "categories": [
     {
@@ -814,6 +814,23 @@
       "status": "new",
       "is_demonstration": true,
       "notification_delivery_status": "simulated",
+      "id": "req-1792598356422-p59j5",
+      "reference_number": "BIO-REQ-2026-1061",
+      "created_at": "2026-10-21T15:59:16.422Z"
+    },
+    {
+      "full_name": "Test Patient",
+      "email": "testpatient@example.com",
+      "phone": "3105550180",
+      "preferred_contact_method": "email",
+      "service_interest": "Morpheus8",
+      "location_preference": "Beverly Hills Flagship",
+      "preferred_time_window": "morning",
+      "privacy_consent_acknowledged": true,
+      "marketing_consent": false,
+      "status": "new",
+      "is_demonstration": true,
+      "notification_delivery_status": "simulated",
       "id": "req-1792597328831-dnvkm",
       "reference_number": "BIO-REQ-2026-1579",
       "created_at": "2026-10-21T15:42:08.831Z"
@@ -922,6 +939,23 @@
     }
   ],
   "sandbox_bookings": [
+    {
+      "treatment_slug": "botox-cosmetic",
+      "treatment_name": "Precision Neuromodulators",
+      "location_slug": "beverly-hills",
+      "provider_slug": "dr-elena-vance",
+      "appointment_date": "2026-11-05",
+      "time_slot": "01:30 PM",
+      "patient_name": "Sophia Loren",
+      "patient_email": "sophia@example.com",
+      "patient_phone": "3105550190",
+      "status": "confirmed",
+      "is_sandbox": true,
+      "notes": "Demonstration Portfolio Booking",
+      "id": "bk-1792598356410-smh7k",
+      "reference_number": "BIO-BKG-2026-89964",
+      "created_at": "2026-10-21T15:59:16.410Z"
+    },
     {
       "treatment_slug": "botox-cosmetic",
       "treatment_name": "Precision Neuromodulators",
@@ -1125,6 +1159,33 @@
     }
   ],
   "audit_logs": [
+    {
+      "id": "log-1792598356424-4edv",
+      "timestamp": "2026-10-21T15:59:16.424Z",
+      "actor": "Public User",
+      "action": "Submit Consultation Request",
+      "entity_type": "consultation_request",
+      "entity_id": "BIO-REQ-2026-1061",
+      "details": "Service: Morpheus8, Location: Beverly Hills Flagship"
+    },
+    {
+      "id": "log-1792598356416-zuhu",
+      "timestamp": "2026-10-21T15:59:16.416Z",
+      "actor": "Admin",
+      "action": "Update Settings",
+      "entity_type": "settings",
+      "entity_id": "global",
+      "details": "{\"operating_mode\":\"demonstration\"}"
+    },
+    {
+      "id": "log-1792598356413-f9f4",
+      "timestamp": "2026-10-21T15:59:16.413Z",
+      "actor": "Public User (Sandbox)",
+      "action": "Create Sandbox Booking",
+      "entity_type": "sandbox_booking",
+      "entity_id": "BIO-BKG-2026-89964",
+      "details": "Treatment: Precision Neuromodulators, Date: 2026-11-05 at 01:30 PM"
+    },
     {
       "id": "log-1792597328833-bfh7",
       "timestamp": "2026-10-21T15:42:08.833Z",

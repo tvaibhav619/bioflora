@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  Sparkles,
   ShieldCheck,
   Award,
   Clock,
@@ -100,11 +99,6 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-4 lg:pr-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-sage rounded-full text-xs font-semibold uppercase tracking-widest text-forest border border-sage-dark/50">
-                <Sparkles className="w-3.5 h-3.5 text-champagne-dark" />
-                <span>Doctor-Guided Aesthetic Medicine</span>
-              </div>
-
               <h1 className="font-serif-luxury text-3xl sm:text-5xl lg:text-6xl font-normal text-forest leading-[1.15] tracking-tight">
                 Refined care. <br />
                 <span className="italic font-light text-forest/90">Naturally confident.</span>
