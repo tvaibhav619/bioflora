@@ -25,19 +25,21 @@ describe("Sandbox Booking Adapter", () => {
   });
 
   it("creates and records a sandbox booking with a reference code", async () => {
+    const timestamp = Date.now();
     const result = await adapter.createBooking({
       treatmentSlug: "botox-cosmetic",
       treatmentName: "Precision Neuromodulators",
       locationSlug: "beverly-hills",
       providerSlug: "dr-elena-vance",
-      appointmentDate: "2026-11-05",
-      timeSlot: "01:30 PM",
+      appointmentDate: "2026-11-20",
+      timeSlot: `${(timestamp % 12) + 1}:00 PM`,
       patientName: "Sophia Loren",
-      patientEmail: "sophia@example.com",
+      patientEmail: `sophia-${timestamp}@example.com`,
       patientPhone: "3105550190",
     });
 
     expect(result.success).toBe(true);
+
     expect(result.isDemonstration).toBe(true);
     expect(result.referenceNumber).toContain("BIO-BKG-");
   });

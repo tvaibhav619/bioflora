@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { bookingSubmissionSchema } from "@/lib/validations/forms";
 import { getActiveBookingAdapter } from "@/lib/booking";
 import { checkRateLimit } from "@/lib/security/rate-limit";
+import { sendBookingNotification } from "@/lib/notifications/email";
+import { getServerAuthoritativeMode, guardPaymentProcessing } from "@/lib/security/mode-isolation";
 
 export async function GET(request: NextRequest) {
   try {
@@ -49,6 +51,26 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
+
+    // Guard: Block live payment attempts in demonstration mode
+    if (body.paymentMethodId || body.amountCents || body.livePayment) {
+      const paymentGuard = await guardPaymentProcessing({
+        amountCents: body.amountCents,
+        paymentMethodId: body.paymentMethodId,
+        isLiveRequested: true,
+      });
+      if (!paymentGuard.allowed) {
+        return NextResponse.json(
+          {
+            success: false,
+            message: paymentGuard.reason,
+            error: "PAYMENT_PROHIBITED_IN_DEMO_MODE",
+          },
+          { status: 400 }
+        );
+      }
+    }
+
     const validated = bookingSubmissionSchema.safeParse(body);
 
     if (!validated.success) {
@@ -61,13 +83,35 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Authoritative server mode
+    const serverPolicy = await getServerAuthoritativeMode();
     const { adapter, mode } = await getActiveBookingAdapter();
+
     const result = await adapter.createBooking({
       ...validated.data,
-      isDemonstration: mode === "demonstration",
+      isDemonstration: serverPolicy.isDemonstration,
     });
 
+    if (!result.success && result.error === "DUPLICATE_BOOKING") {
+      return NextResponse.json(result, { status: 409 });
+    }
+
+    if (result.success) {
+      // Dispatch notification (simulated in demo mode, Resend in production)
+      await sendBookingNotification({
+        referenceNumber: result.referenceNumber,
+        recipientEmail: validated.data.patientEmail,
+        recipientName: validated.data.patientName,
+        treatmentName: validated.data.treatmentName,
+        locationName: validated.data.locationSlug,
+        appointmentDate: validated.data.appointmentDate,
+        timeSlot: validated.data.timeSlot,
+        isDemonstration: serverPolicy.isDemonstration,
+      });
+    }
+
     return NextResponse.json(result);
+
   } catch (error) {
     console.error("Booking submission error:", error);
     return NextResponse.json(

@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveTreatment, getTreatmentBySlug, deleteTreatment } from "@/lib/db/store";
+import { authenticateAdminRequest } from "@/lib/auth/admin-auth";
 
 export async function POST(request: NextRequest) {
+  const auth = await authenticateAdminRequest("content_editor");
+  if ("response" in auth) {
+    return auth.response;
+  }
+
   try {
     const body = await request.json();
     const updated = await saveTreatment(body);
@@ -16,6 +22,11 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  const auth = await authenticateAdminRequest(["admin", "owner"]);
+  if ("response" in auth) {
+    return auth.response;
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const slug = searchParams.get("slug");

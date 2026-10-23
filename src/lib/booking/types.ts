@@ -21,6 +21,7 @@ export interface BookingSubmission {
   patientEmail: string;
   patientPhone: string;
   notes?: string;
+  policyConsent?: boolean;
   isDemonstration?: boolean;
 }
 

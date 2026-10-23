@@ -49,9 +49,13 @@ export default function CookieConsent() {
     const updated = { ...prefs, timestamp: new Date().toISOString() };
     setPreferences(updated);
     localStorage.setItem("bioflora_cookie_consent", JSON.stringify(updated));
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("bioflora-consent-updated", { detail: updated }));
+    }
     setIsOpen(false);
     setShowModal(false);
   };
+
 
   const acceptAll = () => {
     saveConsent({

@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getConsultationRequests, getSandboxBookings } from "@/lib/db/store";
+import { authenticateAdminRequest } from "@/lib/auth/admin-auth";
 
 export async function GET(request: NextRequest) {
+  const auth = await authenticateAdminRequest(["admin", "owner"]);
+  if ("response" in auth) {
+    return auth.response;
+  }
+
   const { searchParams } = new URL(request.url);
   const type = searchParams.get("type") || "consultations";
 

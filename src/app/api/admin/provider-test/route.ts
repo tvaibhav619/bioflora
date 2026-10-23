@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSettings } from "@/lib/db/store";
+import { authenticateAdminRequest } from "@/lib/auth/admin-auth";
 
 export async function POST(request: NextRequest) {
+  const auth = await authenticateAdminRequest(["admin", "owner"]);
+  if ("response" in auth) {
+    return auth.response;
+  }
+
   const { provider } = await request.json();
   const settings = await getSettings();
 

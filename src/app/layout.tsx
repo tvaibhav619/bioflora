@@ -78,10 +78,64 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "MedicalBusiness",
+                  "@id": "https://bioflora-medspa.example.com/#organization",
+                  "name": "BIOFLORA Medical Spa",
+                  "alternateName": "Bioflora Aesthetic Medicine & Wellness",
+                  "url": "https://bioflora-medspa.example.com",
+                  "logo": "https://bioflora-medspa.example.com/icon.svg",
+                  "description":
+                    "Clinician-guided aesthetic medicine, botanical facial wellness, and restorative skin rejuvenation in Beverly Hills & Tribeca.",
+                  "telephone": "+1-800-555-0198",
+                  "priceRange": "$$$$",
+                  "medicalSpecialty": [
+                    "https://schema.org/Dermatology",
+                    "https://schema.org/PlasticSurgery"
+                  ],
+                  "address": [
+                    {
+                      "@type": "PostalAddress",
+                      "streetAddress": "420 N Camden Dr, Suite 300",
+                      "addressLocality": "Beverly Hills",
+                      "addressRegion": "CA",
+                      "postalCode": "90210",
+                      "addressCountry": "US"
+                    },
+                    {
+                      "@type": "PostalAddress",
+                      "streetAddress": "174 Franklin St, Penthouse",
+                      "addressLocality": "New York",
+                      "addressRegion": "NY",
+                      "postalCode": "10013",
+                      "addressCountry": "US"
+                    }
+                  ]
+                }
+              ]
+            }),
+          }}
+        />
       </head>
+
       <body className="min-h-full flex flex-col bg-ivory text-charcoal font-sans selection:bg-champagne-light selection:text-forest overflow-x-hidden w-full pb-16 lg:pb-0">
+        {/* Skip to Main Content Link for Keyboard and Screen-Reader Users */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-forest focus:text-ivory focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-champagne font-semibold text-xs uppercase tracking-widest transition-all"
+        >
+          Skip to main content
+        </a>
+
         {/* Demonstration Mode Notice for Portfolio Showcase */}
         <DemonstrationBanner />
+
         
         {/* Site Global Header with Mega-Menu & Quick Booking CTA */}
         <Suspense fallback={<div className="h-16 bg-ivory border-b border-stone/40" />}>

@@ -44,7 +44,9 @@ export const bookingSubmissionSchema = z.object({
   patientName: z.string().min(2, "Please enter your name"),
   patientEmail: z.string().email("Please enter a valid email address"),
   patientPhone: z.string().min(10, "Please enter a valid phone number"),
+  policyConsent: z.boolean().default(true),
   notes: z.string().max(200, "Notes cannot exceed 200 characters").optional(),
 });
+
 
 export type BookingFormInput = z.infer<typeof bookingSubmissionSchema>;

@@ -9,5 +9,9 @@ export default defineConfig({
   },
   test: {
     environment: "node",
+    include: ["test/**/*.test.ts"],
+    exclude: ["node_modules", ".kilo", ".next"],
+    fileParallelism: false,
   },
 });
+

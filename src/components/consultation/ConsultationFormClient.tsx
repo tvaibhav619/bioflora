@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { CheckCircle2, AlertCircle, Send, ShieldCheck, Lock } from "lucide-react";
 import { TreatmentCategory, Location } from "@/lib/db/types";
+import { trackFunnelEvent } from "@/lib/analytics/tracker";
 
 interface ConsultationFormClientProps {
   categories: TreatmentCategory[];
@@ -27,6 +28,18 @@ export default function ConsultationFormClient({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const hasTrackedStart = useRef(false);
+
+  useEffect(() => {
+    trackFunnelEvent("consultation_views");
+  }, []);
+
+  const handleStartInteraction = () => {
+    if (!hasTrackedStart.current) {
+      hasTrackedStart.current = true;
+      trackFunnelEvent("consultation_starts");
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,6 +72,7 @@ export default function ConsultationFormClient({
       const data = await res.json();
       if (data.success) {
         setResult(data);
+        trackFunnelEvent("consultation_submits");
       } else {
         setErrorMessage(data.message || "Failed to submit request.");
       }
@@ -68,6 +82,7 @@ export default function ConsultationFormClient({
       setIsSubmitting(false);
     }
   };
+
 
   if (result) {
     return (
@@ -141,13 +156,15 @@ export default function ConsultationFormClient({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
+          <label htmlFor="consultation-fullname" className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
             Full Name *
           </label>
           <input
+            id="consultation-fullname"
             type="text"
             required
             value={fullName}
+            onFocus={handleStartInteraction}
             onChange={(e) => setFullName(e.target.value)}
             placeholder="e.g. Eleanor Vance"
             className="w-full px-3.5 py-2.5 bg-ivory border border-stone rounded-xl text-xs sm:text-sm text-charcoal focus:bg-white focus:outline-none focus:ring-1 focus:ring-forest"
@@ -155,10 +172,11 @@ export default function ConsultationFormClient({
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
+          <label htmlFor="consultation-email" className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
             Email Address *
           </label>
           <input
+            id="consultation-email"
             type="email"
             required
             value={email}
@@ -171,10 +189,11 @@ export default function ConsultationFormClient({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
+          <label htmlFor="consultation-phone" className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
             Telephone Number *
           </label>
           <input
+            id="consultation-phone"
             type="tel"
             required
             value={phone}
@@ -185,10 +204,11 @@ export default function ConsultationFormClient({
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
+          <label htmlFor="consultation-contact-method" className="block text-xs font-semibold text-forest uppercase tracking-wider mb-1">
             Preferred Contact Method *
           </label>
           <select
+            id="consultation-contact-method"
             value={preferredContactMethod}
             onChange={(e) => setPreferredContactMethod(e.target.value as any)}
             className="w-full px-3.5 py-2.5 bg-ivory border border-stone rounded-xl text-xs sm:text-sm text-charcoal focus:bg-white focus:outline-none focus:ring-1 focus:ring-forest cursor-pointer"
@@ -199,6 +219,7 @@ export default function ConsultationFormClient({
           </select>
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>

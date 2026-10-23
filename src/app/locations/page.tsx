@@ -24,6 +24,9 @@ export default async function LocationsPage() {
           <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed">
             Thoughtfully designed treatment suites engineered for patient privacy, absolute clinical sterility, and restorative calm.
           </p>
+          <div className="p-3 bg-sage-light/80 border border-sage rounded-xl text-xs text-charcoal-muted max-w-2xl mx-auto text-center leading-relaxed">
+            <strong className="text-forest">Illustrative Practice Sanctuaries:</strong> Facility addresses, architectural details, and suite configurations represent conceptual specifications created for portfolio demonstration of luxury medical spa workflows.
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -44,7 +47,11 @@ export default async function LocationsPage() {
                   <span className="absolute top-4 left-4 bg-forest/90 text-ivory text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full">
                     {loc.is_flagship ? "Flagship Sanctuary" : "Boutique Atelier"}
                   </span>
+                  <span className="absolute bottom-3 left-3 bg-charcoal/85 text-ivory text-[9px] uppercase font-mono px-2.5 py-0.5 rounded shadow-sm z-10">
+                    Illustrative Sanctuary (Demo Model)
+                  </span>
                 </div>
+
 
                 <div className="p-6 sm:p-8 space-y-5">
                   <div>

@@ -40,14 +40,14 @@ export const DEMO_ADMIN_USERS: Record<string, AdminUser & { passwordHash: string
 const SESSION_COOKIE_NAME = "bioflora_admin_session";
 
 export async function getCurrentAdminUser(): Promise<AdminUser | null> {
-  const cookieStore = await cookies();
-  const sessionToken = cookieStore.get(SESSION_COOKIE_NAME)?.value;
-
-  if (!sessionToken) {
-    return null;
-  }
-
   try {
+    const cookieStore = await cookies();
+    const sessionToken = cookieStore.get(SESSION_COOKIE_NAME)?.value;
+
+    if (!sessionToken) {
+      return null;
+    }
+
     const payload = JSON.parse(Buffer.from(sessionToken, "base64").toString("utf-8"));
     if (payload.email && DEMO_ADMIN_USERS[payload.email]) {
       const u = DEMO_ADMIN_USERS[payload.email];
@@ -65,6 +65,7 @@ export async function getCurrentAdminUser(): Promise<AdminUser | null> {
 
   return null;
 }
+
 
 export function createSessionToken(user: AdminUser): string {
   const payload = {
@@ -90,3 +91,29 @@ export function verifyRolePermission(
   const allowedRoles = Array.isArray(requiredRole) ? requiredRole : [requiredRole];
   return allowedRoles.some((r) => hierarchy[userRole] >= hierarchy[r]);
 }
+
+export async function authenticateAdminRequest(
+  requiredRole?: AdminRole | AdminRole[]
+): Promise<{ user: AdminUser } | { response: Response }> {
+  const user = await getCurrentAdminUser();
+  if (!user) {
+    return {
+      response: Response.json(
+        { success: false, error: "Unauthorized: Administrative session required" },
+        { status: 401 }
+      ),
+    };
+  }
+
+  if (requiredRole && !verifyRolePermission(user.role, requiredRole)) {
+    return {
+      response: Response.json(
+        { success: false, error: "Forbidden: Insufficient administrative privileges" },
+        { status: 403 }
+      ),
+    };
+  }
+
+  return { user };
+}
+

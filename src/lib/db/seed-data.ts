@@ -706,8 +706,9 @@ export const initialMemberships: MembershipPlan[] = [
       "15% off all injectables and biostimulator therapies",
       "15% off all retail clinical skincare products",
       "Complimentary private sanctuary lounge access with botanical tea service",
-      "Guaranteed emergency scheduling within 48 hours",
+      "Priority concierge scheduling coordination within 48 hours",
     ],
+
     terms: [
       "6-month initial commitment.",
       "30-day cancellation notice required.",
@@ -810,37 +811,51 @@ This buffer moderates the trans-epidermal flux rate of the molecule without degr
 export const initialReviews: Review[] = [
   {
     id: "rev-1",
-    author_name: "Clarissa V.",
+    author_name: "Illustrative Clinical Case Study A",
     treatment_received: "Precision Neuromodulators & Hydrafacial",
-    location_name: "Beverly Hills Flagship",
+    location_name: "Illustrative Beverly Hills Setting",
     rating: 5,
-    comment: "The clinical precision at Bioflora is truly unmatched. Dr. Vance has an extraordinary eye for proportion. My forehead lines are completely smoothed, yet my face remains expressive and completely natural. The facility feels like a private Japanese sanctuary.",
+    comment:
+      "Representative Patient Protocol: Targeted neuromodulator delivery (glabella & frontalis) formulated to soften hyperdynamic lines while preserving natural expressive animation. Comprehensive medical history and facial symmetry mapping conducted prior to treatment.",
     date_posted: "2026-09-12",
-    source: "verified_patient",
-    is_verified: true,
-    clinic_response: "Thank you Clarissa. Preserving natural facial animation while softening expression lines is the cornerstone of our clinical philosophy.",
+    source: "illustrative_scenario",
+    is_verified: false,
+    is_illustrative: true,
+    clinical_protocol_notes: "Dosage customized per patient muscular vector analysis.",
+    clinic_response:
+      "Clinical Protocol Note: Preserving natural facial animation while softening expression lines represents our core clinical philosophy.",
   },
   {
     id: "rev-2",
-    author_name: "Julian H.",
-    treatment_received: "Morpheus8 RF Remodeling (3-Session Series)",
-    location_name: "Tribeca Atelier",
+    author_name: "Illustrative Clinical Case Study B",
+    treatment_received: "Morpheus8 RF Remodeling Protocol",
+    location_name: "Illustrative Tribeca Setting",
     rating: 5,
-    comment: "I was hesitant about the downtime with RF microneedling, but Sarah Lin prepared me thoroughly and the topical numbing was exceptional. At 4 months out, the tightness along my jawline and improvement in my acne scarring is remarkable.",
+    comment:
+      "Representative Patient Protocol: Multi-depth fractional radiofrequency microneedling administered over a 3-session series. Strict pre-procedure numbing and post-procedure barrier restoration protocol to minimize erythema and maximize patient comfort.",
     date_posted: "2026-08-28",
-    source: "verified_patient",
-    is_verified: true,
-    clinic_response: "We are thrilled with your structural remodeling results, Julian! Collagen synthesis continues to mature through month six.",
+    source: "illustrative_scenario",
+    is_verified: false,
+    is_illustrative: true,
+    clinical_protocol_notes: "Neocollagenesis maturation typically observed over 3–6 months.",
+    clinic_response:
+      "Clinical Protocol Note: Collagen remodeling is a cumulative physiological response following controlled thermal stimulation.",
   },
   {
     id: "rev-3",
-    author_name: "Genevieve M.",
-    treatment_received: "BBL HERO Photofacial",
-    location_name: "Beverly Hills Flagship",
+    author_name: "Illustrative Clinical Case Study C",
+    treatment_received: "BBL HERO Dual-Filter Phototherapy",
+    location_name: "Illustrative Beverly Hills Setting",
     rating: 5,
-    comment: "Years of coastal sun damage and broken capillaries cleared after just two BBL HERO sessions. Transparent pricing, zero sales pressure, and genuine physician oversight.",
+    comment:
+      "Representative Patient Protocol: High-peak-power pulsed phototherapy targeted to benign solar lentigines and vascular redness. Supported by mandatory broad-spectrum mineral SPF 50+ photoprotection throughout the course of care.",
     date_posted: "2026-07-19",
-    source: "verified_patient",
-    is_verified: true,
+    source: "illustrative_scenario",
+    is_verified: false,
+    is_illustrative: true,
+    clinical_protocol_notes: "Pre-procedure Fitzpatrick skin type evaluation required.",
+    clinic_response:
+      "Clinical Protocol Note: Individual pigment response varies based on baseline melanin depth and UV shielding adherence.",
   },
 ];
+

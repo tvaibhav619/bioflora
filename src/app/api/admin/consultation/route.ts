@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { updateConsultationStatus } from "@/lib/db/store";
+import { authenticateAdminRequest } from "@/lib/auth/admin-auth";
 
 export async function POST(request: NextRequest) {
+  const auth = await authenticateAdminRequest("content_editor");
+  if ("response" in auth) {
+    return auth.response;
+  }
+
   try {
     const { id, status } = await request.json();
     if (!id || !status) {

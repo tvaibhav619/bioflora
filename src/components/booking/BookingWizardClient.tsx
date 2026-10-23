@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { Treatment, Location, Provider } from "@/lib/db/types";
 import { DayAvailability } from "@/lib/booking/types";
+import { trackFunnelEvent } from "@/lib/analytics/tracker";
+
 
 interface BookingWizardClientProps {
   treatments: Treatment[];
@@ -62,6 +64,12 @@ export default function BookingWizardClient({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookingResult, setBookingResult] = useState<any>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Track booking view on initial load
+  useEffect(() => {
+    trackFunnelEvent("booking_views");
+    trackFunnelEvent("booking_step_1");
+  }, []);
 
   // Fetch slots when step 4 is reached or location/provider changes
   useEffect(() => {
@@ -115,7 +123,20 @@ export default function BookingWizardClient({
         return;
       }
     }
-    setStep((prev) => prev + 1);
+    const nextStep = step + 1;
+    setStep(nextStep);
+
+    // Track funnel progression
+    const stepEventMap: Record<number, any> = {
+      2: "booking_step_2",
+      3: "booking_step_3",
+      4: "booking_step_4",
+      5: "booking_step_5",
+      6: "booking_step_6",
+    };
+    if (stepEventMap[nextStep]) {
+      trackFunnelEvent(stepEventMap[nextStep]);
+    }
   };
 
   const handlePrevStep = () => {
@@ -146,6 +167,7 @@ export default function BookingWizardClient({
           patientName,
           patientEmail,
           patientPhone,
+          policyConsent: policyAccepted,
           notes,
         }),
       });
@@ -154,6 +176,7 @@ export default function BookingWizardClient({
       if (data.success) {
         setBookingResult(data);
         setStep(7); // Confirmation
+        trackFunnelEvent("booking_confirmed");
       } else {
         setErrorMessage(data.message || "Failed to confirm reservation.");
       }
@@ -163,6 +186,7 @@ export default function BookingWizardClient({
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <div className="bg-white border border-stone rounded-3xl shadow-sm overflow-hidden max-w-4xl mx-auto">

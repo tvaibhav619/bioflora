@@ -98,3 +98,90 @@ export async function sendConsultationNotification(
     };
   }
 }
+
+export interface BookingNotificationPayload {
+  referenceNumber: string;
+  recipientEmail: string;
+  recipientName: string;
+  treatmentName: string;
+  locationName: string;
+  appointmentDate: string;
+  timeSlot: string;
+  isDemonstration: boolean;
+}
+
+export async function sendBookingNotification(
+  payload: BookingNotificationPayload
+): Promise<NotificationResult> {
+  const settings = await getSettings();
+
+  // Demonstration mode: Always simulate safely and log without failing the submission
+  if (settings.operating_mode === "demonstration" || !settings.email_provider_configured) {
+    const logMsg = `[DEMO BOOKING NOTIFICATION] Ref: ${payload.referenceNumber} | To: ${payload.recipientEmail} (${payload.recipientName}) | Procedure: ${payload.treatmentName} | Date: ${payload.appointmentDate} at ${payload.timeSlot} | Status: Simulated sandbox acknowledgement generated.`;
+    console.log(logMsg);
+
+    return {
+      delivered: true,
+      deliveryStatus: "simulated",
+      providerUsed: "Mock/Sandbox Email Dispatcher",
+      messageId: `sim-bkg-${Date.now()}`,
+      logMessage: logMsg,
+    };
+  }
+
+  const apiKey = process.env.RESEND_API_KEY || process.env.SENDGRID_API_KEY;
+  if (!apiKey) {
+    return {
+      delivered: false,
+      deliveryStatus: "failed",
+      providerUsed: "Unconfigured Provider",
+      logMessage: "Production email provider API key is missing. Booking saved in database.",
+    };
+  }
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `Bioflora Appointments <${process.env.EMAIL_FROM || "concierge@bioflora-medspa.example.com"}>`,
+        to: [payload.recipientEmail],
+        subject: `Bioflora Appointment Confirmation [${payload.referenceNumber}]`,
+        html: `
+          <div style="font-family: serif; color: #183B32; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #DAD2C5;">
+            <h1 style="color: #183B32; font-size: 24px;">BIOFLORA Medical Spa</h1>
+            <p>Dear ${payload.recipientName},</p>
+            <p>Your appointment reservation for <strong>${payload.treatmentName}</strong> has been recorded.</p>
+            <p><strong>Sanctuary:</strong> ${payload.locationName}</p>
+            <p><strong>Scheduled Date & Time:</strong> ${payload.appointmentDate} at ${payload.timeSlot}</p>
+            <p>Your confidential reference code: <strong>${payload.referenceNumber}</strong>.</p>
+            <p>Please review our 48-hour cancellation policy prior to your arrival.</p>
+            <hr style="border: 0; border-top: 1px solid #DAD2C5; margin: 24px 0;" />
+            <p style="font-size: 12px; color: #555C50;">Bioflora Medical Spa &bull; Clinical Excellence &bull; Natural Beauty</p>
+          </div>
+        `,
+      }),
+    });
+
+    if (!res.ok) throw new Error(`Email provider status ${res.status}`);
+    const data = await res.json();
+    return {
+      delivered: true,
+      deliveryStatus: "delivered",
+      providerUsed: "Resend",
+      messageId: data.id,
+      logMessage: `Booking confirmation email delivered via Resend. ID: ${data.id}`,
+    };
+  } catch (error) {
+    return {
+      delivered: false,
+      deliveryStatus: "failed",
+      providerUsed: "Resend",
+      logMessage: `Delivery failed: ${(error as Error).message}. Booking saved in database.`,
+    };
+  }
+}
+

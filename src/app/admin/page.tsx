@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { getCurrentAdminUser } from "@/lib/auth/admin-auth";
 import {
   getSettings,
   getConsultationRequests,
@@ -7,7 +9,7 @@ import {
 } from "@/lib/db/store";
 import AdminDashboardClient from "@/components/admin/AdminDashboardClient";
 import Link from "next/link";
-import { ShieldCheck, ArrowLeft } from "lucide-react";
+import { ShieldCheck, ArrowLeft, LogOut, User } from "lucide-react";
 
 export const metadata = {
   title: "Administration Portal | Bioflora Medical Spa",
@@ -16,6 +18,12 @@ export const metadata = {
 };
 
 export default async function AdminPage() {
+  const adminUser = await getCurrentAdminUser();
+
+  if (!adminUser) {
+    redirect("/admin/login");
+  }
+
   const [settings, requests, bookings, treatments, auditLogs] = await Promise.all([
     getSettings(),
     getConsultationRequests(),
@@ -23,6 +31,7 @@ export default async function AdminPage() {
     getTreatments({ includeUnpublished: true }),
     getAuditLogs(),
   ]);
+
 
   return (
     <div className="py-8 sm:py-12 bg-ivory min-h-screen">
@@ -49,13 +58,28 @@ export default async function AdminPage() {
             </p>
           </div>
 
-          <div className="text-xs text-charcoal-muted font-mono bg-white p-3 rounded-xl border border-stone">
-            <span>Session: Authorized Administrator</span>
+          <div className="flex items-center gap-3 bg-white p-3 rounded-xl border border-stone">
+            <div className="text-right">
+              <span className="block text-xs font-semibold text-forest">{adminUser.name}</span>
+              <span className="block text-[10px] text-charcoal-muted font-mono capitalize">
+                Role: {adminUser.role.replace("_", " ")} ({adminUser.title})
+              </span>
+            </div>
+            <form action="/api/admin/auth/logout" method="POST">
+              <button
+                type="submit"
+                title="Sign out of administrative portal"
+                className="p-2 text-charcoal-muted hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors border border-stone/50"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            </form>
           </div>
         </div>
 
         {/* Dashboard Client */}
         <AdminDashboardClient
+          currentUser={adminUser}
           initialSettings={settings}
           initialRequests={requests}
           initialBookings={bookings}
@@ -66,3 +90,4 @@ export default async function AdminPage() {
     </div>
   );
 }
+

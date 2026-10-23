@@ -204,10 +204,13 @@ export interface Review {
   rating: number; // 1-5
   comment: string;
   date_posted: string;
-  source: "verified_patient" | "google_verified" | "clinic_survey";
+  source: "illustrative_scenario" | "sample_protocol" | "verified_patient" | "google_verified" | "clinic_survey";
   is_verified: boolean;
+  is_illustrative: boolean;
+  clinical_protocol_notes?: string;
   clinic_response?: string;
 }
+
 
 export interface AuditLog {
   id: string;
@@ -218,3 +221,19 @@ export interface AuditLog {
   entity_id: string;
   details: string;
 }
+
+export interface FunnelMetrics {
+  consultation_views: number;
+  consultation_starts: number;
+  consultation_submits: number;
+  booking_views: number;
+  booking_step_1: number;
+  booking_step_2: number;
+  booking_step_3: number;
+  booking_step_4: number;
+  booking_step_5: number;
+  booking_step_6: number;
+  booking_confirmed: number;
+  last_updated: string;
+}
+

@@ -14,6 +14,7 @@ import {
   JournalArticle,
   Review,
   AuditLog,
+  FunnelMetrics,
 } from "./types";
 import {
   initialSettings,
@@ -42,7 +43,9 @@ export interface DatabaseState {
   journal_articles: JournalArticle[];
   reviews: Review[];
   audit_logs: AuditLog[];
+  funnel_metrics: FunnelMetrics;
 }
+
 
 const ROOT_DB_FILE = path.join(process.cwd(), ".data", "bioflora-db.json");
 const DB_DIR = process.env.VERCEL
@@ -75,13 +78,27 @@ function getInitialState(): DatabaseState {
         details: "Bioflora database successfully seeded with clinical models and initial portfolio demonstration state.",
       },
     ],
+    funnel_metrics: {
+      consultation_views: 142,
+      consultation_starts: 58,
+      consultation_submits: 24,
+      booking_views: 210,
+      booking_step_1: 185,
+      booking_step_2: 152,
+      booking_step_3: 130,
+      booking_step_4: 98,
+      booking_step_5: 74,
+      booking_step_6: 52,
+      booking_confirmed: 41,
+      last_updated: new Date().toISOString(),
+    },
   };
 }
 
 let cachedState: DatabaseState | null = null;
 
 function loadDatabase(): DatabaseState {
-  if (cachedState && process.env.NODE_ENV === "production") {
+  if (cachedState && (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "test" || process.env.VITEST)) {
     return cachedState;
   }
 
@@ -91,6 +108,9 @@ function loadDatabase(): DatabaseState {
       const data = fs.readFileSync(DB_FILE, "utf-8");
       if (data && data.trim()) {
         cachedState = JSON.parse(data);
+        if (!cachedState!.funnel_metrics) {
+          cachedState!.funnel_metrics = getInitialState().funnel_metrics;
+        }
         return cachedState!;
       }
     }
@@ -122,16 +142,26 @@ function loadDatabase(): DatabaseState {
 }
 
 function saveDatabase(state: DatabaseState): void {
+  cachedState = state;
   try {
     if (!fs.existsSync(DB_DIR)) {
       fs.mkdirSync(DB_DIR, { recursive: true });
     }
 
-    fs.writeFileSync(DB_FILE, JSON.stringify(state, null, 2), "utf-8");
+    const tempFile = `${DB_FILE}.${Date.now()}.${Math.random().toString(36).slice(2)}.tmp`;
+    fs.writeFileSync(tempFile, JSON.stringify(state, null, 2), "utf-8");
+    try {
+      fs.renameSync(tempFile, DB_FILE);
+    } catch {
+      // Fallback if cross-device or permission race
+      fs.writeFileSync(DB_FILE, JSON.stringify(state, null, 2), "utf-8");
+      if (fs.existsSync(tempFile)) {
+        try { fs.unlinkSync(tempFile); } catch {}
+      }
+    }
   } catch (error) {
     console.warn("Notice: Persistent filesystem write unavailable in current environment, retaining state in-memory:", error);
   }
-  cachedState = state;
 }
 
 // -------------------------------------------------------------
@@ -341,12 +371,13 @@ export async function saveJournalArticle(article: JournalArticle): Promise<Journ
 }
 
 // -------------------------------------------------------------
-// Reviews
+// Reviews & Illustrative Clinical Protocols
 // -------------------------------------------------------------
 export async function getReviews(): Promise<Review[]> {
   const db = loadDatabase();
-  return db.reviews.filter((r) => r.is_verified).sort((a, b) => b.date_posted.localeCompare(a.date_posted));
+  return db.reviews.sort((a, b) => b.date_posted.localeCompare(a.date_posted));
 }
+
 
 // -------------------------------------------------------------
 // Consultation Requests & Enquiries
@@ -480,3 +511,37 @@ export async function addAuditLog(
   }
   saveDatabase(db);
 }
+
+// -------------------------------------------------------------
+// Privacy-Conscious Funnel Analytics & Conversion Metrics
+// -------------------------------------------------------------
+export async function getFunnelMetrics(): Promise<FunnelMetrics> {
+  const db = loadDatabase();
+  return db.funnel_metrics;
+}
+
+export type ValidFunnelEvent =
+  | "consultation_views"
+  | "consultation_starts"
+  | "consultation_submits"
+  | "booking_views"
+  | "booking_step_1"
+  | "booking_step_2"
+  | "booking_step_3"
+  | "booking_step_4"
+  | "booking_step_5"
+  | "booking_step_6"
+  | "booking_confirmed";
+
+export async function recordFunnelEvent(
+  eventName: ValidFunnelEvent
+): Promise<FunnelMetrics> {
+  const db = loadDatabase();
+  if (typeof db.funnel_metrics[eventName] === "number") {
+    db.funnel_metrics[eventName] += 1;
+    db.funnel_metrics.last_updated = new Date().toISOString();
+    saveDatabase(db);
+  }
+  return db.funnel_metrics;
+}
+

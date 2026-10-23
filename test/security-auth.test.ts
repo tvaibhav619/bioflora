@@ -63,5 +63,16 @@ describe("Admin RBAC & Authentication", () => {
     // Clinical reviewer can review content
     expect(verifyRolePermission("clinical_reviewer", "content_editor")).toBe(true);
     expect(verifyRolePermission("clinical_reviewer", "owner")).toBe(false);
+
+    // Admin has access to clinical and content
+    expect(verifyRolePermission("admin", "clinical_reviewer")).toBe(true);
+    expect(verifyRolePermission("admin", "content_editor")).toBe(true);
+    expect(verifyRolePermission("admin", "owner")).toBe(false);
+
+    // Array of allowed roles
+    expect(verifyRolePermission("content_editor", ["admin", "owner"])).toBe(false);
+    expect(verifyRolePermission("owner", ["admin", "owner"])).toBe(true);
+    expect(verifyRolePermission("admin", ["admin", "owner"])).toBe(true);
   });
 });
+

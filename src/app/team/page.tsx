@@ -24,6 +24,9 @@ export default async function TeamPage() {
           <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed">
             Every injectable and laser treatment at Bioflora is performed by certified medical professionals with rigorous academic training and aesthetic restraint.
           </p>
+          <div className="p-3 bg-sage-light/80 border border-sage rounded-xl text-xs text-charcoal-muted max-w-2xl mx-auto text-center leading-relaxed">
+            <strong className="text-forest">Illustrative Clinical Leadership:</strong> Clinician profiles, board certifications, and provider bios shown below represent sample medical spa roles for practice model demonstration.
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -41,12 +44,11 @@ export default async function TeamPage() {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  {p.is_demonstration_profile && (
-                    <span className="absolute bottom-3 left-3 bg-charcoal/80 text-ivory text-[9px] uppercase font-mono px-2 py-0.5 rounded">
-                      Illustrative Profile
-                    </span>
-                  )}
+                  <span className="absolute bottom-3 left-3 bg-charcoal/85 text-ivory text-[9px] uppercase font-mono px-2.5 py-0.5 rounded shadow-sm z-10">
+                    Illustrative Profile (Demo Model)
+                  </span>
                 </div>
+
 
                 <div className="p-6 space-y-3">
                   <h2 className="font-serif-luxury text-2xl font-medium text-forest">

@@ -5,7 +5,7 @@ import {
   BookingSubmission,
   BookingResult,
 } from "./types";
-import { createSandboxBooking } from "@/lib/db/store";
+import { createSandboxBooking, getSandboxBookings } from "@/lib/db/store";
 
 export class SandboxBookingAdapter implements IBookingAdapter {
   private defaultHours = [
@@ -27,6 +27,7 @@ export class SandboxBookingAdapter implements IBookingAdapter {
   ): Promise<DayAvailability[]> {
     const result: DayAvailability[] = [];
     const baseDate = new Date(startDateStr);
+    const existingBookings = await getSandboxBookings();
 
     for (let i = 0; i < daysAhead; i++) {
       const d = new Date(baseDate);
@@ -42,11 +43,21 @@ export class SandboxBookingAdapter implements IBookingAdapter {
       // Generate realistic slot availability (deterministic per date + provider)
       const slots: TimeSlot[] = this.defaultHours.map((time, idx) => {
         // Pseudo-random pattern based on date day + idx
-        const isBooked = (d.getDate() + idx * 3) % 4 === 0;
+        const isDefaultBooked = (d.getDate() + idx * 3) % 4 === 0;
+
+        // Check if an existing booking is already scheduled for this provider, date and time slot
+        const isReserved = existingBookings.some(
+          (b) =>
+            b.appointment_date === dateStr &&
+            b.time_slot === time &&
+            b.provider_slug === providerSlug &&
+            b.status !== "cancelled"
+        );
+
         return {
           id: `slot-${dateStr}-${idx}`,
           time,
-          available: !isBooked,
+          available: !isDefaultBooked && !isReserved,
           is_demonstration_slot: true,
         };
       });
@@ -62,6 +73,31 @@ export class SandboxBookingAdapter implements IBookingAdapter {
 
   async createBooking(submission: BookingSubmission): Promise<BookingResult> {
     try {
+      const existing = await getSandboxBookings();
+
+      // Check for duplicate reservation:
+      // 1) Same provider, date, and slot
+      // 2) Same patient email, date, and slot
+      const conflict = existing.find(
+        (b) =>
+          b.status !== "cancelled" &&
+          b.appointment_date === submission.appointmentDate &&
+          b.time_slot === submission.timeSlot &&
+          (b.provider_slug === submission.providerSlug ||
+            b.patient_email.toLowerCase() === submission.patientEmail.toLowerCase())
+      );
+
+      if (conflict) {
+        return {
+          success: false,
+          referenceNumber: "",
+          isDemonstration: true,
+          message:
+            "This appointment time slot is already reserved or conflicts with an existing booking. Please select another slot or date.",
+          error: "DUPLICATE_BOOKING",
+        };
+      }
+
       const record = await createSandboxBooking({
         treatment_slug: submission.treatmentSlug,
         treatment_name: submission.treatmentName,
@@ -102,6 +138,7 @@ export class SandboxBookingAdapter implements IBookingAdapter {
       };
     }
   }
+
 
   async cancelBooking(referenceNumber: string): Promise<boolean> {
     // In sandbox, simulate successful cancellation

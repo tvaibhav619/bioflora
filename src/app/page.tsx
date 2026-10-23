@@ -479,7 +479,11 @@ export default async function HomePage() {
               <h2 className="font-serif-luxury text-3xl sm:text-4xl text-forest font-normal mt-1">
                 Meet the Clinical Team
               </h2>
+              <p className="text-xs text-charcoal-muted mt-1">
+                Illustrative medical practitioners and aesthetic nurse injectors modeling clinical oversight.
+              </p>
             </div>
+
             <Link
               href="/team"
               className="text-xs font-semibold uppercase tracking-widest text-forest hover:text-champagne-dark flex items-center gap-1.5"
@@ -546,18 +550,18 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 9. Verified Patient Proof & Experiences */}
+      {/* 9. Illustrative Clinical Care Models & Protocols */}
       <section className="py-10 sm:py-12 bg-white border-b border-stone/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
             <span className="text-xs font-semibold uppercase tracking-widest text-champagne-dark">
-              Verified Feedback
+              Clinical Case Models
             </span>
             <h2 className="font-serif-luxury text-3xl sm:text-4xl text-forest font-normal">
-              Patient Experiences
+              Illustrative Treatment Journeys
             </h2>
             <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed">
-              Authentic reflections from clients who have experienced Bioflora&apos;s clinical care.
+              Representative clinical protocols modeling personalized treatment design, anatomical safety margins, and recovery stages. Displayed transparently for portfolio demonstration.
             </p>
           </div>
 
@@ -568,27 +572,40 @@ export default async function HomePage() {
                 className="bg-ivory/50 border border-stone p-6 rounded-2xl flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center gap-1 text-champagne-dark">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-forest text-ivory">
+                      Illustrative Case Study
+                    </span>
+                    <span className="text-[10px] text-charcoal-muted font-mono">
+                      Protocol Ref #{rev.id.toUpperCase()}
+                    </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-charcoal leading-relaxed italic">
-                    &ldquo;{rev.comment}&rdquo;
+                  <p className="text-xs sm:text-sm text-charcoal leading-relaxed">
+                    {rev.comment}
                   </p>
                 </div>
 
-                <div className="border-t border-stone/40 pt-4 text-xs">
+                <div className="border-t border-stone/40 pt-4 text-xs space-y-1">
                   <p className="font-semibold text-forest">{rev.author_name}</p>
-                  <p className="text-charcoal-muted text-[11px] mt-0.5">
+                  <p className="text-charcoal-muted text-[11px]">
                     {rev.treatment_received} &bull; {rev.location_name}
                   </p>
+                  {rev.clinic_response && (
+                    <p className="text-[11px] text-forest/90 bg-sage-light/60 p-2 rounded-lg border border-sage/50 mt-2 italic">
+                      {rev.clinic_response}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="mt-8 p-4 bg-ivory rounded-2xl border border-stone/60 max-w-3xl mx-auto text-center text-xs text-charcoal-muted leading-relaxed">
+            <strong className="text-forest">Clinical Notice:</strong> Physiological outcomes vary by individual skin biome, baseline anatomy, and adherence to UV photoprotection. Treatments require prior in-person clinical assessment by a licensed practitioner. Bioflora does not guarantee uniform medical results.
+          </div>
         </div>
       </section>
+
 
       {/* 10. Curated Sanctuary Gallery Preview */}
       <section className="py-10 sm:py-12 bg-ivory border-b border-stone/40">
